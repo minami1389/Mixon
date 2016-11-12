@@ -13,6 +13,11 @@
 		192EBFC51DD6EA95006A77F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192EBFC31DD6EA95006A77F4 /* LaunchScreen.storyboard */; };
 		192EBFD01DD6EA95006A77F4 /* MixonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFCF1DD6EA95006A77F4 /* MixonTests.swift */; };
 		192EBFDB1DD6EA95006A77F4 /* MixonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFDA1DD6EA95006A77F4 /* MixonUITests.swift */; };
+		192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */; };
+		192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */; };
+		192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */; };
+		192EBFEF1DD6ED64006A77F4 /* CocktailDatailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */; };
+		192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		192EBFD61DD6EA95006A77F4 /* MixonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		192EBFDA1DD6EA95006A77F4 /* MixonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixonUITests.swift; sourceTree = "<group>"; };
 		192EBFDC1DD6EA95006A77F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCocktailBaseViewController.swift; sourceTree = "<group>"; };
+		192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailDatailViewController.swift; sourceTree = "<group>"; };
+		192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailMakeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				192EBFBA1DD6EA95006A77F4 /* AppDelegate.swift */,
+				192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */,
+				192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */,
+				192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */,
+				192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */,
+				192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */,
 				192EBFBE1DD6EA95006A77F4 /* Main.storyboard */,
 				192EBFC11DD6EA95006A77F4 /* Assets.xcassets */,
 				192EBFC31DD6EA95006A77F4 /* LaunchScreen.storyboard */,
@@ -256,7 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */,
+				192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */,
 				192EBFBB1DD6EA95006A77F4 /* AppDelegate.swift in Sources */,
+				192EBFEF1DD6ED64006A77F4 /* CocktailDatailViewController.swift in Sources */,
+				192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */,
+				192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

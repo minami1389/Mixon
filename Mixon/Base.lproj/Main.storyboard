@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,17 +21,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfT-TW-uGH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <state key="normal" backgroundImage="welcome"/>
+                                <connections>
+                                    <segue destination="zt8-cl-cjr" kind="presentation" id="x7p-Ml-h21"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DfT-TW-uGH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Aue-cx-uW9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DfT-TW-uGH" secondAttribute="bottom" id="Fpo-t5-7W6"/>
+                            <constraint firstAttribute="trailing" secondItem="DfT-TW-uGH" secondAttribute="trailing" id="Sal-nT-bbb"/>
+                            <constraint firstItem="DfT-TW-uGH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="kOp-Qd-bk0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="139"/>
+            <point key="canvasLocation" x="140" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Cocktail Base View Controller-->
         <scene sceneID="FmE-u3-aum">
             <objects>
-                <viewController id="zt8-cl-cjr" sceneMemberID="viewController">
+                <viewController id="zt8-cl-cjr" customClass="SelectCocktailBaseViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ErU-g5-Zxg"/>
                         <viewControllerLayoutGuide type="bottom" id="CXE-zm-wbZ"/>
@@ -45,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="830" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="7es-4Y-l4J">
             <objects>
-                <viewController id="ag3-gH-hfo" sceneMemberID="viewController">
+                <viewController id="ag3-gH-hfo" customClass="HomeViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ldq-B9-Vee"/>
                         <viewControllerLayoutGuide type="bottom" id="Ogi-6M-KLO"/>
@@ -61,12 +77,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7d-Of-Qsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="818"/>
+            <point key="canvasLocation" x="140" y="816"/>
         </scene>
-        <!--View Controller-->
+        <!--Cocktail Datail View Controller-->
         <scene sceneID="jZy-M8-1s3">
             <objects>
-                <viewController id="4t7-sw-Dff" sceneMemberID="viewController">
+                <viewController id="4t7-sw-Dff" customClass="CocktailDatailViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8j0-Lo-a9j"/>
                         <viewControllerLayoutGuide type="bottom" id="3uK-FW-37D"/>
@@ -79,12 +95,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmc-ea-1Nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="819"/>
+            <point key="canvasLocation" x="830" y="817"/>
         </scene>
-        <!--View Controller-->
+        <!--Cocktail Make View Controller-->
         <scene sceneID="Ogk-4s-fJT">
             <objects>
-                <viewController id="PTh-8b-QRn" sceneMemberID="viewController">
+                <viewController id="PTh-8b-QRn" customClass="CocktailMakeViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNM-hg-EG4"/>
                         <viewControllerLayoutGuide type="bottom" id="qBV-i1-PEC"/>
@@ -97,7 +113,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wc-KF-8RJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="819"/>
+            <point key="canvasLocation" x="1524" y="816"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="welcome" width="662" height="1158"/>
+    </resources>
 </document>
