@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         searchButton.setTitle(String.fontAwesomeIcon(name: .search), for: .normal)
         
         bases = BaseCoordinator.sharedCoordinator.fetch()
-        cocktails = CocktailCoordinator.sharedCoordinator.fetch()
+        cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: baseID)
         
         cocktailTableView.reloadData()
         menuTableView.reloadData()
@@ -77,6 +77,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
         case cocktailTableView:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CocktailTableViewCell", for: indexPath) as? CocktailTableViewCell {
+                let cocktail = cocktails[indexPath.row]
+                cell.titleLabel.text = cocktail.name
+                cell.cocktailImageView.image = UIImage(named: cocktail.image)
                 return cell
             }
         case menuTableView:
@@ -130,15 +133,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case menuTableView:
             toggleMenu()
-            switch indexPath.row {
-            case 0:
-                break
-            case 1:
-                break
-            default:
-                break
-            }
-            
+            baseID = indexPath.row - 1
+            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: baseID)
+            cocktailTableView.reloadData()
         default:
             break
         }

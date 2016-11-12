@@ -26,10 +26,10 @@
 		192EBFFD1DD6F1DD006A77F4 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */; };
 		192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */; };
 		192EC0051DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */; };
-		192EC0091DD70560006A77F4 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 192EC0081DD70560006A77F4 /* default.realm */; };
 		192EC00C1DD70EA7006A77F4 /* CocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */; };
 		192EC00E1DD73A9A006A77F4 /* MenuTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00D1DD73A9A006A77F4 /* MenuTopTableViewCell.swift */; };
 		192EC0101DD73AA4006A77F4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00F1DD73AA4006A77F4 /* MenuTableViewCell.swift */; };
+		192EC0121DD74605006A77F4 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 192EC0111DD74605006A77F4 /* default.realm */; };
 		460D40074280D843FD254875 /* Pods_Mixon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7AE13FA04E327EF3005CB17 /* Pods_Mixon.framework */; };
 		6706F528119621061FA648D5 /* Pods_MixonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DF6A5839C88127B138B137 /* Pods_MixonTests.framework */; };
 /* End PBXBuildFile section */
@@ -77,10 +77,10 @@
 		192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCoordinator.swift; sourceTree = "<group>"; };
 		192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCocktailTableViewCell.swift; sourceTree = "<group>"; };
-		192EC0081DD70560006A77F4 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = DB/default.realm; sourceTree = SOURCE_ROOT; };
 		192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailTableViewCell.swift; sourceTree = "<group>"; };
 		192EC00D1DD73A9A006A77F4 /* MenuTopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTopTableViewCell.swift; sourceTree = "<group>"; };
 		192EC00F1DD73AA4006A77F4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		192EC0111DD74605006A77F4 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = DB/default.realm; sourceTree = SOURCE_ROOT; };
 		20C2C7A157F1A4144D4BD7C2 /* Pods-MixonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		66E2ACC2B2ECE0C3B55385BB /* Pods-MixonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixonTests/Pods-MixonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72D75403766C0D4198FB12A8 /* Pods_MixonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,13 +180,13 @@
 		192EBFF51DD6F03A006A77F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				192EC0081DD70560006A77F4 /* default.realm */,
 				192EBFF31DD6F033006A77F4 /* Base.swift */,
 				192EBFF61DD6F043006A77F4 /* Cocktail.swift */,
 				192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */,
 				192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */,
 				192EBFF81DD6F1B5006A77F4 /* base.csv */,
 				192EBFF91DD6F1B5006A77F4 /* cocktail.csv */,
+				192EC0111DD74605006A77F4 /* default.realm */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				192EBFFA1DD6F1B5006A77F4 /* base.csv in Resources */,
 				192EBFC21DD6EA95006A77F4 /* Assets.xcassets in Resources */,
 				192EBFC01DD6EA95006A77F4 /* Main.storyboard in Resources */,
-				192EC0091DD70560006A77F4 /* default.realm in Resources */,
+				192EC0121DD74605006A77F4 /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

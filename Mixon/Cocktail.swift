@@ -22,4 +22,5 @@ class Cocktail: Object {
     dynamic var quantity3 = 0
     dynamic var material4 = ""
     dynamic var quantity4 = 0
+    dynamic var favorite = false
 }

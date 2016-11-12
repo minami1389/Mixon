@@ -11,15 +11,28 @@ import RealmSwift
 class CocktailCoordinator: NSObject {
     static let sharedCoordinator = CocktailCoordinator()
     
-    func fetch() -> [Cocktail] {
+    func fetch(baseID: Int) -> [Cocktail] {
         
         var cocktails = [Cocktail]()
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"), readOnly: true)
         let realm = try! Realm(configuration: config)
         
-        let results = realm.objects(Cocktail.self)
-        for result in results {
-            cocktails.append(result)
+        switch baseID {
+        case -1:
+            let results = realm.objects(Cocktail.self)
+            for result in results {
+                cocktails.append(result)
+            }
+        case 0:
+            let results = realm.objects(Cocktail.self).filter("favorite == true")
+            for result in results {
+                cocktails.append(result)
+            }
+        default:
+            let results = realm.objects(Cocktail.self).filter("baseID == \(baseID)")
+            for result in results {
+                cocktails.append(result)
+            }
         }
         
         return cocktails
