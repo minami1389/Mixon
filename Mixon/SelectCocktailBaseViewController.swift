@@ -7,29 +7,50 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SelectCocktailBaseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    var bases = [Base]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchBase()
+        tableView.reloadData()
     }
 
-    
+    func fetchBase() {
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"), readOnly: true)
+        let realm = try! Realm(configuration: config)
+        
+        let results = realm.objects(Base.self)
+        for result in results {
+            bases.append(result)
+        }
+    }
     
 
 }
 
 extension SelectCocktailBaseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return bases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let base = bases[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectCocktailTableViewCell", for: indexPath) as! SelectCocktailTableViewCell
+        cell.titleLabel.text = "\(base.nameJp)　\(base.nameEn)"
+        cell.cocktailImageView?.image = UIImage(named: base.image)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+            homeVC.baseID = bases[indexPath.row].id
+            self.present(homeVC, animated: true, completion: nil)
+        }
     }
     
 }

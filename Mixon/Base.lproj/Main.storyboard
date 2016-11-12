@@ -102,12 +102,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="Re4-kO-zmx">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gin" translatesAutoresizingMaskIntoConstraints="NO" id="Re4-kO-zmx">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddT-6e-5Rl">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジン　Gin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxC-oc-7zV">
                                                     <rect key="frame" x="145.5" y="29" width="83" height="21.5"/>
@@ -137,6 +137,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="zt8-cl-cjr" id="GKg-I9-Ayh"/>
+                                    <outlet property="delegate" destination="zt8-cl-cjr" id="Kz8-le-RRV"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -162,7 +163,7 @@
         <!--Home View Controller-->
         <scene sceneID="7es-4Y-l4J">
             <objects>
-                <viewController id="ag3-gH-hfo" customClass="HomeViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="ag3-gH-hfo" customClass="HomeViewController" customModule="Mixon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ldq-B9-Vee"/>
                         <viewControllerLayoutGuide type="bottom" id="Ogi-6M-KLO"/>
@@ -216,6 +217,7 @@
     </scenes>
     <resources>
         <image name="cocktail" width="680" height="510"/>
+        <image name="gin" width="600" height="400"/>
         <image name="welcome" width="662" height="1158"/>
     </resources>
 </document>
