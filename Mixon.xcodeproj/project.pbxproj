@@ -27,6 +27,7 @@
 		192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */; };
 		192EC0051DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */; };
 		192EC0091DD70560006A77F4 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 192EC0081DD70560006A77F4 /* default.realm */; };
+		192EC00C1DD70EA7006A77F4 /* CocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */; };
 		460D40074280D843FD254875 /* Pods_Mixon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7AE13FA04E327EF3005CB17 /* Pods_Mixon.framework */; };
 		6706F528119621061FA648D5 /* Pods_MixonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DF6A5839C88127B138B137 /* Pods_MixonTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCoordinator.swift; sourceTree = "<group>"; };
 		192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCocktailTableViewCell.swift; sourceTree = "<group>"; };
 		192EC0081DD70560006A77F4 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = DB/default.realm; sourceTree = SOURCE_ROOT; };
+		192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailTableViewCell.swift; sourceTree = "<group>"; };
 		20C2C7A157F1A4144D4BD7C2 /* Pods-MixonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		66E2ACC2B2ECE0C3B55385BB /* Pods-MixonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixonTests/Pods-MixonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72D75403766C0D4198FB12A8 /* Pods_MixonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +143,7 @@
 				192EBFBA1DD6EA95006A77F4 /* AppDelegate.swift */,
 				192EC0021DD6FAC4006A77F4 /* Welcome */,
 				192EC0031DD6FAC9006A77F4 /* SelectCocktail */,
-				192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */,
+				192EC00A1DD709ED006A77F4 /* Home */,
 				192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */,
 				192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */,
 				192EBFF51DD6F03A006A77F4 /* Model */,
@@ -200,6 +202,15 @@
 				192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */,
 			);
 			name = SelectCocktail;
+			sourceTree = "<group>";
+		};
+		192EC00A1DD709ED006A77F4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */,
+				192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		32AD4300FBED267BE961FD39 /* Frameworks */ = {
@@ -512,6 +523,7 @@
 				192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */,
 				192EBFFD1DD6F1DD006A77F4 /* BaseCoordinator.swift in Sources */,
 				192EC0051DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift in Sources */,
+				192EC00C1DD70EA7006A77F4 /* CocktailTableViewCell.swift in Sources */,
 				192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */,
 				192EBFBB1DD6EA95006A77F4 /* AppDelegate.swift in Sources */,
 				192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */,

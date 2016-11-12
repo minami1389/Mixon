@@ -7,31 +7,61 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class HomeViewController: UIViewController {
 
     var baseID = 0
     
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var cocktailTableView: UITableView!
+    @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var cocktailTableViewOriginX: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        menuButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        searchButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        menuButton.setTitle(String.fontAwesomeIcon(name: .bars), for: .normal)
+        searchButton.setTitle(String.fontAwesomeIcon(name: .search), for: .normal)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func didTapMenuButton(sender: UIButton) {
     }
-    */
 
+    @IBAction func didTapSearchButton(sender: UIButton) {
+    }
+
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch tableView {
+        case cocktailTableView:
+            return 10
+        case menuTableView:
+            return 0
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch tableView {
+        case cocktailTableView:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "CocktailTableViewCell", for: indexPath) as? CocktailTableViewCell {
+                return cell
+            }
+        case menuTableView:
+            break
+        default:
+            break
+        }
+        
+        return UITableViewCell()
+    }
 }
