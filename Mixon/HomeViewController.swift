@@ -26,6 +26,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         cocktailTableViewOriginX.constant = 0
         
         menuButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
@@ -34,7 +36,7 @@ class HomeViewController: UIViewController {
         searchButton.setTitle(String.fontAwesomeIcon(name: .search), for: .normal)
         
         bases = BaseCoordinator.sharedCoordinator.fetch()
-        cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: baseID)
+        cocktails = CocktailCoordinator.sharedCoordinator.fetch()
         
         cocktailTableView.reloadData()
         menuTableView.reloadData()
@@ -130,11 +132,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         switch tableView {
         case cocktailTableView:
-            break
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailDatailViewController") as? CocktailDatailViewController {
+                vc.cocktail = cocktails[indexPath.row]
+                navigationController?.pushViewController(vc, animated: true)
+            }
         case menuTableView:
             toggleMenu()
             baseID = indexPath.row - 1
-            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: baseID)
+            CocktailCoordinator.sharedCoordinator.baseID = baseID
+            cocktails = CocktailCoordinator.sharedCoordinator.fetch()
             cocktailTableView.reloadData()
         default:
             break

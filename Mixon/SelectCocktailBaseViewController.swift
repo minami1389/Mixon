@@ -36,9 +36,9 @@ extension SelectCocktailBaseViewController: UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-            homeVC.baseID = bases[indexPath.row].id
-            self.present(homeVC, animated: true, completion: nil)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController {
+            CocktailCoordinator.sharedCoordinator.baseID = bases[indexPath.row].id
+            self.present(vc, animated: true, completion: nil)
         }
     }
     

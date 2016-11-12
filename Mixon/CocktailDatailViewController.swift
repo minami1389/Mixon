@@ -10,26 +10,83 @@ import UIKit
 
 class CocktailDatailViewController: UIViewController {
 
+    var cocktail:Cocktail?
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var detailLabel: UILabel!
+    
+    @IBOutlet weak var colorView1: UIView!
+    @IBOutlet weak var colorView2: UIView!
+    @IBOutlet weak var colorView3: UIView!
+    @IBOutlet weak var colorView4: UIView!
+    
+    @IBOutlet weak var colorViewWidth1: NSLayoutConstraint!
+    @IBOutlet weak var colorViewWidth2: NSLayoutConstraint!
+    @IBOutlet weak var colorViewWidth3: NSLayoutConstraint!
+    @IBOutlet weak var colorViewWidth4: NSLayoutConstraint!
+    
+    @IBOutlet weak var iconView1: UIView!
+    @IBOutlet weak var materialLabel1: UILabel!
+    @IBOutlet weak var quantityLabel1: UILabel!
+    
+    @IBOutlet weak var iconView2: UIView!
+    @IBOutlet weak var materialLabel2: UILabel!
+    @IBOutlet weak var quantityLabel2: UILabel!
+    
+    @IBOutlet weak var iconView3: UIView!
+    @IBOutlet weak var materialLabel3: UILabel!
+    @IBOutlet weak var quantityLabel3: UILabel!
+    
+    @IBOutlet weak var iconView4: UIView!
+    @IBOutlet weak var materialLabel4: UILabel!
+    @IBOutlet weak var quantityLabel4: UILabel!
+    
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        backButton.setTitle(String.fontAwesomeIcon(name: .angleLeft), for: .normal)
+        
+        guard let cocktail = cocktail else {
+            return
+        }
 
-        // Do any additional setup after loading the view.
+        nameLabel.text = cocktail.name
+        imageView.image = UIImage(named:cocktail.image)
+        detailLabel.text = cocktail.detail
+        
+        if cocktail.material1 != "" {
+            materialLabel1.text = cocktail.material1
+            quantityLabel1.text = String(cocktail.quantity1)
+            iconView1.isHidden = false
+        }
+        if cocktail.material2 != "" {
+            materialLabel2.text = cocktail.material2
+            quantityLabel2.text = String(cocktail.quantity2)
+            iconView2.isHidden = false
+        }
+        if cocktail.material3 != "" {
+            materialLabel3.text = cocktail.material3
+            quantityLabel3.text = String(cocktail.quantity3)
+            iconView3.isHidden = false
+        }
+        if cocktail.material4 != "" {
+            materialLabel4.text = cocktail.material4
+            quantityLabel4.text = String(cocktail.quantity4)
+            iconView4.isHidden = false
+        }
+        
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func didTapBackButton(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func didTapMakeButton(_ sender: UIButton) {
     }
-    */
-
+    
 }
