@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0498DE91A706922A84AFA8ED /* Pods_MixonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D75403766C0D4198FB12A8 /* Pods_MixonUITests.framework */; };
 		192EBFBB1DD6EA95006A77F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFBA1DD6EA95006A77F4 /* AppDelegate.swift */; };
 		192EBFC01DD6EA95006A77F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192EBFBE1DD6EA95006A77F4 /* Main.storyboard */; };
 		192EBFC21DD6EA95006A77F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192EBFC11DD6EA95006A77F4 /* Assets.xcassets */; };
@@ -18,6 +19,16 @@
 		192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */; };
 		192EBFEF1DD6ED64006A77F4 /* CocktailDatailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */; };
 		192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */; };
+		192EBFF41DD6F033006A77F4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF31DD6F033006A77F4 /* Base.swift */; };
+		192EBFF71DD6F043006A77F4 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF61DD6F043006A77F4 /* Cocktail.swift */; };
+		192EBFFA1DD6F1B5006A77F4 /* base.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192EBFF81DD6F1B5006A77F4 /* base.csv */; };
+		192EBFFB1DD6F1B5006A77F4 /* cocktail.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192EBFF91DD6F1B5006A77F4 /* cocktail.csv */; };
+		192EBFFD1DD6F1DD006A77F4 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */; };
+		192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */; };
+		192EC0011DD6F880006A77F4 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 192EC0001DD6F880006A77F4 /* default.realm */; };
+		192EC0051DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */; };
+		460D40074280D843FD254875 /* Pods_Mixon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7AE13FA04E327EF3005CB17 /* Pods_Mixon.framework */; };
+		6706F528119621061FA648D5 /* Pods_MixonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DF6A5839C88127B138B137 /* Pods_MixonTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044D7B4247D0722659BAED61 /* Pods-Mixon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mixon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mixon/Pods-Mixon.release.xcconfig"; sourceTree = "<group>"; };
 		192EBFB71DD6EA95006A77F4 /* Mixon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		192EBFBA1DD6EA95006A77F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		192EBFBF1DD6EA95006A77F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +67,22 @@
 		192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailDatailViewController.swift; sourceTree = "<group>"; };
 		192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailMakeViewController.swift; sourceTree = "<group>"; };
+		192EBFF31DD6F033006A77F4 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		192EBFF61DD6F043006A77F4 /* Cocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
+		192EBFF81DD6F1B5006A77F4 /* base.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base.csv; path = DB/base.csv; sourceTree = SOURCE_ROOT; };
+		192EBFF91DD6F1B5006A77F4 /* cocktail.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cocktail.csv; path = DB/cocktail.csv; sourceTree = SOURCE_ROOT; };
+		192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCoordinator.swift; sourceTree = "<group>"; };
+		192EC0001DD6F880006A77F4 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = DB/default.realm; sourceTree = SOURCE_ROOT; };
+		192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCocktailTableViewCell.swift; sourceTree = "<group>"; };
+		20C2C7A157F1A4144D4BD7C2 /* Pods-MixonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		66E2ACC2B2ECE0C3B55385BB /* Pods-MixonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixonTests/Pods-MixonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72D75403766C0D4198FB12A8 /* Pods_MixonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF9B39D558FB2C5266A16973 /* Pods-Mixon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mixon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mixon/Pods-Mixon.debug.xcconfig"; sourceTree = "<group>"; };
+		C31999F23FE7A36D7BAA17C3 /* Pods-MixonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixonTests/Pods-MixonTests.release.xcconfig"; sourceTree = "<group>"; };
+		D3DF6A5839C88127B138B137 /* Pods_MixonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF6ABC5C698DC55A3F882975 /* Pods-MixonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7AE13FA04E327EF3005CB17 /* Pods_Mixon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mixon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460D40074280D843FD254875 /* Pods_Mixon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6706F528119621061FA648D5 /* Pods_MixonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0498DE91A706922A84AFA8ED /* Pods_MixonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +120,8 @@
 				192EBFCE1DD6EA95006A77F4 /* MixonTests */,
 				192EBFD91DD6EA95006A77F4 /* MixonUITests */,
 				192EBFB81DD6EA95006A77F4 /* Products */,
+				BF1D3BA7A8756B011C38B0D9 /* Pods */,
+				32AD4300FBED267BE961FD39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,11 +139,12 @@
 			isa = PBXGroup;
 			children = (
 				192EBFBA1DD6EA95006A77F4 /* AppDelegate.swift */,
-				192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */,
-				192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */,
+				192EC0021DD6FAC4006A77F4 /* Welcome */,
+				192EC0031DD6FAC9006A77F4 /* SelectCocktail */,
 				192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */,
 				192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */,
 				192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */,
+				192EBFF51DD6F03A006A77F4 /* Model */,
 				192EBFBE1DD6EA95006A77F4 /* Main.storyboard */,
 				192EBFC11DD6EA95006A77F4 /* Assets.xcassets */,
 				192EBFC31DD6EA95006A77F4 /* LaunchScreen.storyboard */,
@@ -137,6 +171,60 @@
 			path = MixonUITests;
 			sourceTree = "<group>";
 		};
+		192EBFF51DD6F03A006A77F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				192EBFF31DD6F033006A77F4 /* Base.swift */,
+				192EBFF61DD6F043006A77F4 /* Cocktail.swift */,
+				192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */,
+				192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */,
+				192EBFF81DD6F1B5006A77F4 /* base.csv */,
+				192EBFF91DD6F1B5006A77F4 /* cocktail.csv */,
+				192EC0001DD6F880006A77F4 /* default.realm */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		192EC0021DD6FAC4006A77F4 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
+		192EC0031DD6FAC9006A77F4 /* SelectCocktail */ = {
+			isa = PBXGroup;
+			children = (
+				192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */,
+				192EC0041DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift */,
+			);
+			name = SelectCocktail;
+			sourceTree = "<group>";
+		};
+		32AD4300FBED267BE961FD39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7AE13FA04E327EF3005CB17 /* Pods_Mixon.framework */,
+				D3DF6A5839C88127B138B137 /* Pods_MixonTests.framework */,
+				72D75403766C0D4198FB12A8 /* Pods_MixonUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF1D3BA7A8756B011C38B0D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF9B39D558FB2C5266A16973 /* Pods-Mixon.debug.xcconfig */,
+				044D7B4247D0722659BAED61 /* Pods-Mixon.release.xcconfig */,
+				66E2ACC2B2ECE0C3B55385BB /* Pods-MixonTests.debug.xcconfig */,
+				C31999F23FE7A36D7BAA17C3 /* Pods-MixonTests.release.xcconfig */,
+				EF6ABC5C698DC55A3F882975 /* Pods-MixonUITests.debug.xcconfig */,
+				20C2C7A157F1A4144D4BD7C2 /* Pods-MixonUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 192EBFDF1DD6EA95006A77F4 /* Build configuration list for PBXNativeTarget "Mixon" */;
 			buildPhases = (
+				F28739146BC1F8C63CE6C6FF /* [CP] Check Pods Manifest.lock */,
 				192EBFB31DD6EA94006A77F4 /* Sources */,
 				192EBFB41DD6EA94006A77F4 /* Frameworks */,
 				192EBFB51DD6EA94006A77F4 /* Resources */,
+				43DE27E40875C141F5CF0419 /* [CP] Embed Pods Frameworks */,
+				208C17399061F6C9CC79094F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,9 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 192EBFE21DD6EA95006A77F4 /* Build configuration list for PBXNativeTarget "MixonTests" */;
 			buildPhases = (
+				B93CD0F64822DDAF1C9B1DE7 /* [CP] Check Pods Manifest.lock */,
 				192EBFC71DD6EA95006A77F4 /* Sources */,
 				192EBFC81DD6EA95006A77F4 /* Frameworks */,
 				192EBFC91DD6EA95006A77F4 /* Resources */,
+				123457474E4BF1BF2F830C9D /* [CP] Embed Pods Frameworks */,
+				E52C8FD923FDFA023B6C2AA5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,9 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 192EBFE51DD6EA95006A77F4 /* Build configuration list for PBXNativeTarget "MixonUITests" */;
 			buildPhases = (
+				B671C197809B2FE365798624 /* [CP] Check Pods Manifest.lock */,
 				192EBFD21DD6EA95006A77F4 /* Sources */,
 				192EBFD31DD6EA95006A77F4 /* Frameworks */,
 				192EBFD41DD6EA95006A77F4 /* Resources */,
+				D6C66A76B7CC097D17394F71 /* [CP] Embed Pods Frameworks */,
+				4E6D981B64C19996C7EA2D35 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,8 +342,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				192EBFC51DD6EA95006A77F4 /* LaunchScreen.storyboard in Resources */,
+				192EBFFB1DD6F1B5006A77F4 /* cocktail.csv in Resources */,
+				192EBFFA1DD6F1B5006A77F4 /* base.csv in Resources */,
 				192EBFC21DD6EA95006A77F4 /* Assets.xcassets in Resources */,
 				192EBFC01DD6EA95006A77F4 /* Main.storyboard in Resources */,
+				192EC0011DD6F880006A77F4 /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,16 +366,159 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		123457474E4BF1BF2F830C9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixonTests/Pods-MixonTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		208C17399061F6C9CC79094F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mixon/Pods-Mixon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43DE27E40875C141F5CF0419 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mixon/Pods-Mixon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E6D981B64C19996C7EA2D35 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B671C197809B2FE365798624 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B93CD0F64822DDAF1C9B1DE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6C66A76B7CC097D17394F71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E52C8FD923FDFA023B6C2AA5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixonTests/Pods-MixonTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F28739146BC1F8C63CE6C6FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		192EBFB31DD6EA94006A77F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */,
+				192EBFFD1DD6F1DD006A77F4 /* BaseCoordinator.swift in Sources */,
+				192EC0051DD6FAE0006A77F4 /* SelectCocktailTableViewCell.swift in Sources */,
 				192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */,
 				192EBFBB1DD6EA95006A77F4 /* AppDelegate.swift in Sources */,
+				192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */,
+				192EBFF71DD6F043006A77F4 /* Cocktail.swift in Sources */,
 				192EBFEF1DD6ED64006A77F4 /* CocktailDatailViewController.swift in Sources */,
 				192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */,
+				192EBFF41DD6F033006A77F4 /* Base.swift in Sources */,
 				192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +669,7 @@
 		};
 		192EBFE01DD6EA95006A77F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF9B39D558FB2C5266A16973 /* Pods-Mixon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Mixon/Info.plist;
@@ -438,6 +682,7 @@
 		};
 		192EBFE11DD6EA95006A77F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 044D7B4247D0722659BAED61 /* Pods-Mixon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Mixon/Info.plist;
@@ -450,6 +695,7 @@
 		};
 		192EBFE31DD6EA95006A77F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66E2ACC2B2ECE0C3B55385BB /* Pods-MixonTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -464,6 +710,7 @@
 		};
 		192EBFE41DD6EA95006A77F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C31999F23FE7A36D7BAA17C3 /* Pods-MixonTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -478,6 +725,7 @@
 		};
 		192EBFE61DD6EA95006A77F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF6ABC5C698DC55A3F882975 /* Pods-MixonUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MixonUITests/Info.plist;
@@ -491,6 +739,7 @@
 		};
 		192EBFE71DD6EA95006A77F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20C2C7A157F1A4144D4BD7C2 /* Pods-MixonUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MixonUITests/Info.plist;
@@ -521,6 +770,7 @@
 				192EBFE11DD6EA95006A77F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		192EBFE21DD6EA95006A77F4 /* Build configuration list for PBXNativeTarget "MixonTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +779,7 @@
 				192EBFE41DD6EA95006A77F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		192EBFE51DD6EA95006A77F4 /* Build configuration list for PBXNativeTarget "MixonUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +788,7 @@
 				192EBFE71DD6EA95006A77F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
