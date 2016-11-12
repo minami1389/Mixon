@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func fetchDataBase() {
-        BaseCoordinator.sharedCoordinator.fetch(fileName: "base")
-        CocktailCoordinator.sharedCoordinator.fetch(fileName: "cocktail")
+        BaseCoordinator.sharedCoordinator.coordinate(fileName: "base")
+        CocktailCoordinator.sharedCoordinator.coordinate(fileName: "cocktail")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

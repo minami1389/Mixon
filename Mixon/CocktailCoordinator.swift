@@ -11,7 +11,21 @@ import RealmSwift
 class CocktailCoordinator: NSObject {
     static let sharedCoordinator = CocktailCoordinator()
     
-    func fetch(fileName:String) {
+    func fetch() -> [Cocktail] {
+        
+        var cocktails = [Cocktail]()
+        let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"), readOnly: true)
+        let realm = try! Realm(configuration: config)
+        
+        let results = realm.objects(Cocktail.self)
+        for result in results {
+            cocktails.append(result)
+        }
+        
+        return cocktails
+    }
+    
+    func coordinate(fileName:String) {
         guard let csvPath = Bundle.main.path(forResource: fileName, ofType: "csv") else { fatalError("miss open csv file") }
         var csvString = ""
         do {
