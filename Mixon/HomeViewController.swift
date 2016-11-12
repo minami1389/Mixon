@@ -11,7 +11,6 @@ import FontAwesome_swift
 
 class HomeViewController: UIViewController {
 
-    var baseID = 0
     var isMenuOpen = false
     
     var bases = [Base]()
@@ -40,6 +39,13 @@ class HomeViewController: UIViewController {
         
         cocktailTableView.reloadData()
         menuTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let baseID = CocktailCoordinator.sharedCoordinator.baseID
+        let indexPath = NSIndexPath.init(item: baseID+1, section: 0)
+        menuTableView.selectRow(at: indexPath as IndexPath, animated: true, scrollPosition: .none)
     }
     
     func toggleMenu() {
@@ -129,17 +135,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         switch tableView {
         case cocktailTableView:
+            tableView.deselectRow(at: indexPath, animated: true)
             if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailDatailViewController") as? CocktailDatailViewController {
                 vc.cocktail = cocktails[indexPath.row]
                 navigationController?.pushViewController(vc, animated: true)
             }
         case menuTableView:
             toggleMenu()
-            baseID = indexPath.row - 1
-            CocktailCoordinator.sharedCoordinator.baseID = baseID
+            CocktailCoordinator.sharedCoordinator.baseID = indexPath.row - 1
             cocktails = CocktailCoordinator.sharedCoordinator.fetch()
             cocktailTableView.reloadData()
         default:

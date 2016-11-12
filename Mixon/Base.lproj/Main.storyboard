@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <state key="normal" backgroundImage="welcome"/>
                                 <connections>
-                                    <segue destination="zt8-cl-cjr" kind="presentation" id="x7p-Ml-h21"/>
+                                    <segue destination="zt8-cl-cjr" kind="presentation" modalTransitionStyle="crossDissolve" id="x7p-Ml-h21"/>
                                 </connections>
                             </button>
                         </subviews>

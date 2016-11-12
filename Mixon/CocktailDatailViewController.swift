@@ -90,6 +90,7 @@ class CocktailDatailViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailMakeViewController") as? CocktailMakeViewController {
             vc.cocktail = cocktail
             vc.step = 1
+            vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)
         }
     }
