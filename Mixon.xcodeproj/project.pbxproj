@@ -148,8 +148,8 @@
 				192EC0021DD6FAC4006A77F4 /* Welcome */,
 				192EC0031DD6FAC9006A77F4 /* SelectCocktail */,
 				192EC00A1DD709ED006A77F4 /* Home */,
-				192EC0131DD7653A006A77F4 /* CocktailDetailVC */,
-				192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */,
+				192EC0131DD7653A006A77F4 /* CocktailDetail */,
+				192EC0141DD77067006A77F4 /* CocktailMake */,
 				192EBFF51DD6F03A006A77F4 /* Model */,
 				192EBFBE1DD6EA95006A77F4 /* Main.storyboard */,
 				192EBFC11DD6EA95006A77F4 /* Assets.xcassets */,
@@ -219,12 +219,20 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		192EC0131DD7653A006A77F4 /* CocktailDetailVC */ = {
+		192EC0131DD7653A006A77F4 /* CocktailDetail */ = {
 			isa = PBXGroup;
 			children = (
 				192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */,
 			);
-			name = CocktailDetailVC;
+			name = CocktailDetail;
+			sourceTree = "<group>";
+		};
+		192EC0141DD77067006A77F4 /* CocktailMake */ = {
+			isa = PBXGroup;
+			children = (
+				192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */,
+			);
+			name = CocktailMake;
 			sourceTree = "<group>";
 		};
 		32AD4300FBED267BE961FD39 /* Frameworks */ = {

@@ -59,22 +59,22 @@ class CocktailDatailViewController: UIViewController {
         
         if cocktail.material1 != "" {
             materialLabel1.text = cocktail.material1
-            quantityLabel1.text = String(cocktail.quantity1)
+            quantityLabel1.text = "\(cocktail.quantity1)ml"
             iconView1.isHidden = false
         }
         if cocktail.material2 != "" {
             materialLabel2.text = cocktail.material2
-            quantityLabel2.text = String(cocktail.quantity2)
+            quantityLabel2.text = "\(cocktail.quantity2)ml"
             iconView2.isHidden = false
         }
         if cocktail.material3 != "" {
             materialLabel3.text = cocktail.material3
-            quantityLabel3.text = String(cocktail.quantity3)
+            quantityLabel3.text = "\(cocktail.quantity3)ml"
             iconView3.isHidden = false
         }
         if cocktail.material4 != "" {
             materialLabel4.text = cocktail.material4
-            quantityLabel4.text = String(cocktail.quantity4)
+            quantityLabel4.text = "\(cocktail.quantity4)ml"
             iconView4.isHidden = false
         }
         
@@ -87,6 +87,11 @@ class CocktailDatailViewController: UIViewController {
     }
     
     @IBAction func didTapMakeButton(_ sender: UIButton) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailMakeViewController") as? CocktailMakeViewController {
+            vc.cocktail = cocktail
+            vc.step = 1
+            present(vc, animated: true, completion: nil)
+        }
     }
     
 }
