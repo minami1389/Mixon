@@ -11,6 +11,7 @@ import RealmSwift
 class CocktailCoordinator: NSObject {
     static let sharedCoordinator = CocktailCoordinator()
     var baseID = 0
+    var haveCocktails = [Bool]()
     
     func fetch() -> [Cocktail] {
         

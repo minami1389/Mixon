@@ -17,7 +17,7 @@ class BaseCoordinator: NSObject {
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"), readOnly: true)
         let realm = try! Realm(configuration: config)
         
-        let results = realm.objects(Base.self)
+        let results = realm.objects(Base.self).sorted(byProperty: "id", ascending: true)
         for result in results {
             bases.append(result)
         }

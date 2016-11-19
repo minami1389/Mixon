@@ -10,37 +10,75 @@ import UIKit
 import RealmSwift
 
 class SelectCocktailBaseViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var collectionView: UICollectionView!
     var bases = [Base]()
+    var selected = Array(repeating:false, count:9)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.allowsMultipleSelection = true
         bases = BaseCoordinator.sharedCoordinator.fetch()
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 
 }
 
-extension SelectCocktailBaseViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bases.count
+extension SelectCocktailBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return bases.count + 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == bases.count {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CocktailSelectStartCollectionViewCell", for: indexPath) as! CocktailSelectStartCollectionViewCell
+            cell.arrowLabel.font = UIFont.fontAwesome(ofSize: 28)
+            cell.arrowLabel.text = String.fontAwesomeIcon(name: .angleDoubleRight)
+            return cell
+            
+        }
+        
         let base = bases[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectCocktailTableViewCell", for: indexPath) as! SelectCocktailTableViewCell
-        cell.titleLabel.text = "\(base.nameJp)　\(base.nameEn)"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CocktailSelectCollectionViewCell", for: indexPath) as! CocktailSelectCollectionViewCell
+        cell.nameJpLabel.text = "\(base.nameJp)"
+        cell.nameEnLabel.text = "\(base.nameEn)"
         cell.cocktailImageView?.image = UIImage(named: base.image)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item != bases.count {
+            let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
+            cell.coverView.isHidden = true
+            selected[indexPath.item] = true
+            return
+        }
+        
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController {
-            CocktailCoordinator.sharedCoordinator.baseID = bases[indexPath.row].id
+            //CocktailCoordinator.sharedCoordinator.baseID = bases[indexPath.row].id
+            CocktailCoordinator.sharedCoordinator.haveCocktails = selected
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if indexPath.item != bases.count {
+            let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
+            cell.coverView.isHidden = false
+            selected[indexPath.item] = false
+            return
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let margin: CGFloat = 6
+        let row: CGFloat = 2
+        let column: CGFloat = 5
+        let ratio: CGFloat = 142/123
+        let width = (collectionView.frame.size.width - margin * (column - 1)) / column
+        let height = (collectionView.frame.size.height - margin * (row - 1)) / row
+        return CGSize(width: width, height: width*ratio)
+    }
+    
     
 }
