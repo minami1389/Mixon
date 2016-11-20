@@ -42,6 +42,12 @@ class CocktailMakeViewController: UIViewController {
         closeButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 44)
         closeButton.setTitle(String.fontAwesomeIcon(name: .timesCircle), for: .normal)
         
+
+        updateView()
+        
+    }
+    
+    func updateView() {
         guard let cocktail = cocktail else {
             return
         }
@@ -60,12 +66,15 @@ class CocktailMakeViewController: UIViewController {
         case 1:
             detailLabel.text = "デバイスにグラスを乗せてください"
         case 2:
+            write(values: ["1,100,50,30,20"])
             detailLabel.text = "グラスに氷を入れてください"
         case 3:
+            write(values: ["2,4"])
             detailLabel.text = cocktail.material1
             quantityLabel.text = "\(cocktail.quantity1)ml"
             view.backgroundColor = UIColor.init(red: 193/255, green: 72/255, blue: 149/255, alpha: 1.0)
         case 4:
+            write(values: ["3"])
             detailLabel.text = cocktail.material2
             quantityLabel.text = "\(cocktail.quantity2)ml"
             view.backgroundColor = UIColor.init(red: 206/255, green: 75/255, blue: 75/255, alpha: 1.0)
@@ -80,7 +89,6 @@ class CocktailMakeViewController: UIViewController {
         default:
             break
         }
-        
     }
     
     func next() {
@@ -103,13 +111,10 @@ class CocktailMakeViewController: UIViewController {
             break
         }
         
-        
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailMakeViewController") as? CocktailMakeViewController {
-            vc.cocktail = cocktail
-            vc.step = (step+1)
-            vc.modalTransitionStyle = .crossDissolve
-            present(vc, animated: true, completion: nil)
-        }
+        step += 1
+        UIView.animate(withDuration: 0.3, animations: {
+            self.updateView()
+        })
     }
 
     @IBAction func didTap(_ sender: Any) {
@@ -121,22 +126,20 @@ class CocktailMakeViewController: UIViewController {
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        centralManager?.stopScan()
-        if let mixon = self.mixon {
-            centralManager?.cancelPeripheralConnection(mixon)
-            if let characteristic = notifyCharacteristic {
-                mixon.setNotifyValue(false, for: characteristic)
-            }
-        }
-    }
     
     @IBAction func didTapNextButton(_ sender: UIButton) {
         next()
     }
     @IBAction func didTapCloseButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.centralManager?.stopScan()
+            if let mixon = self.mixon {
+                self.centralManager?.cancelPeripheralConnection(mixon)
+                if let characteristic = self.notifyCharacteristic {
+                    mixon.setNotifyValue(false, for: characteristic)
+                }
+            }
+        })
     }
 }
 
@@ -175,7 +178,6 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("")
         mixon?.discoverServices(nil)
     }
     
@@ -206,7 +208,7 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
             if characteristic.uuid.uuidString == writeCharacteristicUUID {
                 print("Discover Write Characteristics")
                 writeCharacteristic = characteristic
-                write()
+                write(values: ["0", "1,255,255,255"])
             } else if characteristic.uuid.uuidString == notifyCharacteristicUUID {
                 print("Discover Notify Characteristics")
                 notifyCharacteristic = characteristic
@@ -215,18 +217,13 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
         }
     }
     
-    func write() {
+    func write(values: [String]) {
         guard let writeCharacteristic = writeCharacteristic else { return }
-        let values:[CUnsignedChar] = [0x00, 0x01, 0x10, 0x02, 0x20, 0x04, 0x01, 0x00]
         for value in values {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                var v = value
-                let data = NSData(bytes: &v, length: 1)
-                self.mixon?.writeValue(
-                    data as Data,
-                    for: writeCharacteristic,
-                    type: CBCharacteristicWriteType.withResponse
-                )
+                if let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+                    self.mixon?.writeValue(data, for: writeCharacteristic, type: CBCharacteristicWriteType.withResponse)
+                }
             }
         }
     }
@@ -234,7 +231,7 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let data = characteristic.value {
             let text = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print("Update Value:\(text)")
+            print("Mixon Value:\(text)")
         }
     }
     
@@ -253,6 +250,7 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
             print("Did Write Value")
         }
     }
+    
     
     
 }
