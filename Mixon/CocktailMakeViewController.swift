@@ -13,11 +13,19 @@ class CocktailMakeViewController: UIViewController {
 
     var cocktail: Cocktail?
     var step = 0
+    var totalStep = 6
     
     @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextLabel: UILabel!
     @IBOutlet weak var cocktailNameLabel: UILabel!
+    @IBOutlet weak var cocktailNameEnLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
+    
+    @IBOutlet weak var effectView: UIVisualEffectView!
+    @IBOutlet weak var imageView: UIImageView!
     
     let uuid = "EF6CE85F-95B6-F511-6394-A5EB127973CB"
     let serviceUUID = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
@@ -31,60 +39,70 @@ class CocktailMakeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 70)
+        closeButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 44)
         closeButton.setTitle(String.fontAwesomeIcon(name: .timesCircle), for: .normal)
         
         guard let cocktail = cocktail else {
             return
         }
         
+        stepLabel.text = "STEP \(step)/\(totalStep)"
+        cocktailNameLabel.text = cocktail.name
+        cocktailNameEnLabel.text = cocktail.name
+        
+        nextButton.isHidden = (step > 2)
+        nextLabel.isHidden = (step > 2)
+        quantityLabel.isHidden = (step <= 2)
+        imageView.isHidden = (step > 2)
+        effectView.isHidden = (step > 2)
+        
         switch step {
         case 1:
-            stepLabel.text = "STEP 1"
-            cocktailNameLabel.text = cocktail.material1
-            quantityLabel.text = "\(cocktail.quantity1)ml"
-            view.backgroundColor = UIColor.init(red: 240/255, green: 208/255, blue: 228/255, alpha: 1.0)
+            detailLabel.text = "デバイスにグラスを乗せてください"
         case 2:
-            stepLabel.text = "STEP 2"
-            cocktailNameLabel.text = cocktail.material2
-            quantityLabel.text = "\(cocktail.quantity2)ml"
-            view.backgroundColor = UIColor.init(red: 210/255, green: 126/255, blue: 179/255, alpha: 1.0)
+            detailLabel.text = "グラスに氷を入れてください"
         case 3:
-            stepLabel.text = "STEP 3"
-            cocktailNameLabel.text = cocktail.material3
-            quantityLabel.text = "\(cocktail.quantity3)ml"
-            view.backgroundColor = UIColor.init(red: 180/255, green: 60/255, blue: 136/255, alpha: 1.0)
+            detailLabel.text = cocktail.material1
+            quantityLabel.text = "\(cocktail.quantity1)ml"
+            view.backgroundColor = UIColor.init(red: 193/255, green: 72/255, blue: 149/255, alpha: 1.0)
         case 4:
-            stepLabel.text = "STEP 4"
-            cocktailNameLabel.text = cocktail.material4
+            detailLabel.text = cocktail.material2
+            quantityLabel.text = "\(cocktail.quantity2)ml"
+            view.backgroundColor = UIColor.init(red: 206/255, green: 75/255, blue: 75/255, alpha: 1.0)
+        case 5:
+            detailLabel.text = cocktail.material3
+            quantityLabel.text = "\(cocktail.quantity3)ml"
+            view.backgroundColor = UIColor.init(red: 75/255, green: 182/255, blue: 206/255, alpha: 1.0)
+        case 6:
+            detailLabel.text = cocktail.material4
             quantityLabel.text = "\(cocktail.quantity4)ml"
-            view.backgroundColor = UIColor.init(red: 165/255, green: 33/255, blue: 117/255, alpha: 1.0)
+            view.backgroundColor = UIColor.init(red: 184/255, green: 206/255, blue: 75/255, alpha: 1.0)
         default:
             break
         }
         
     }
-
-    @IBAction func didTap(_ sender: Any) {
+    
+    func next() {
         switch step {
-        case 1:
+        case 3:
             if cocktail?.material2 == "" {
                 return
             }
-        case 2:
+        case 4:
             if cocktail?.material3 == "" {
                 return
             }
-        case 3:
+        case 5:
             if cocktail?.material4 == "" {
                 return
             }
-        case 4:
+        case 6:
             return
         default:
             break
         }
-
+        
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailMakeViewController") as? CocktailMakeViewController {
             vc.cocktail = cocktail
@@ -92,6 +110,10 @@ class CocktailMakeViewController: UIViewController {
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)
         }
+    }
+
+    @IBAction func didTap(_ sender: Any) {
+        next()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -110,6 +132,9 @@ class CocktailMakeViewController: UIViewController {
         }
     }
     
+    @IBAction func didTapNextButton(_ sender: UIButton) {
+        next()
+    }
     @IBAction func didTapCloseButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

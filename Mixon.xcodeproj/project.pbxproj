@@ -14,7 +14,6 @@
 		192EBFC51DD6EA95006A77F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192EBFC31DD6EA95006A77F4 /* LaunchScreen.storyboard */; };
 		192EBFD01DD6EA95006A77F4 /* MixonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFCF1DD6EA95006A77F4 /* MixonTests.swift */; };
 		192EBFDB1DD6EA95006A77F4 /* MixonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFDA1DD6EA95006A77F4 /* MixonUITests.swift */; };
-		192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */; };
 		192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */; };
 		192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */; };
 		192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */; };
@@ -63,7 +62,6 @@
 		192EBFD61DD6EA95006A77F4 /* MixonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		192EBFDA1DD6EA95006A77F4 /* MixonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixonUITests.swift; sourceTree = "<group>"; };
 		192EBFDC1DD6EA95006A77F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCocktailBaseViewController.swift; sourceTree = "<group>"; };
 		192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailMakeViewController.swift; sourceTree = "<group>"; };
@@ -141,10 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				192EBFBA1DD6EA95006A77F4 /* AppDelegate.swift */,
-				192EC0021DD6FAC4006A77F4 /* Welcome */,
 				192EC0031DD6FAC9006A77F4 /* SelectCocktail */,
 				192EC00A1DD709ED006A77F4 /* Home */,
-				192EC0131DD7653A006A77F4 /* CocktailDetail */,
 				192EC0141DD77067006A77F4 /* CocktailMake */,
 				192EBFF51DD6F03A006A77F4 /* Model */,
 				192EBFBE1DD6EA95006A77F4 /* Main.storyboard */,
@@ -187,14 +183,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		192EC0021DD6FAC4006A77F4 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */,
-			);
-			name = Welcome;
-			sourceTree = "<group>";
-		};
 		192EC0031DD6FAC9006A77F4 /* SelectCocktail */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,13 +200,6 @@
 				192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */,
 			);
 			name = Home;
-			sourceTree = "<group>";
-		};
-		192EC0131DD7653A006A77F4 /* CocktailDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CocktailDetail;
 			sourceTree = "<group>";
 		};
 		192EC0141DD77067006A77F4 /* CocktailMake */ = {
@@ -546,7 +527,6 @@
 				1939D66F1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift in Sources */,
 				192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */,
 				192EBFF71DD6F043006A77F4 /* Cocktail.swift in Sources */,
-				192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */,
 				192EBFF41DD6F033006A77F4 /* Base.swift in Sources */,
 				192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */,
 			);
