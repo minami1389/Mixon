@@ -53,8 +53,8 @@ extension SelectCocktailBaseViewController: UICollectionViewDelegate, UICollecti
             return
         }
         
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as? UINavigationController {
-            //CocktailCoordinator.sharedCoordinator.baseID = bases[indexPath.row].id
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+            CocktailCoordinator.sharedCoordinator.baseID = -1
             CocktailCoordinator.sharedCoordinator.haveCocktails = selected
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)

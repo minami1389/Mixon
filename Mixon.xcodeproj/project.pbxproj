@@ -17,15 +17,12 @@
 		192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */; };
 		192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */; };
 		192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */; };
-		192EBFEF1DD6ED64006A77F4 /* CocktailDatailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */; };
 		192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */; };
 		192EBFF41DD6F033006A77F4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF31DD6F033006A77F4 /* Base.swift */; };
 		192EBFF71DD6F043006A77F4 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFF61DD6F043006A77F4 /* Cocktail.swift */; };
 		192EBFFD1DD6F1DD006A77F4 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */; };
 		192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */; };
 		192EC00C1DD70EA7006A77F4 /* CocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */; };
-		192EC00E1DD73A9A006A77F4 /* MenuTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00D1DD73A9A006A77F4 /* MenuTopTableViewCell.swift */; };
-		192EC0101DD73AA4006A77F4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00F1DD73AA4006A77F4 /* MenuTableViewCell.swift */; };
 		1939D66F1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939D66E1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift */; };
 		1939D6711DE086860042269C /* CocktailSelectStartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939D6701DE086860042269C /* CocktailSelectStartCollectionViewCell.swift */; };
 		198E389A1DE07F7600698D61 /* base.csv in Resources */ = {isa = PBXBuildFile; fileRef = 198E38981DE07F7600698D61 /* base.csv */; };
@@ -69,15 +66,12 @@
 		192EBFE81DD6ECEA006A77F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		192EBFEA1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCocktailBaseViewController.swift; sourceTree = "<group>"; };
 		192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailDatailViewController.swift; sourceTree = "<group>"; };
 		192EBFF01DD6ED8D006A77F4 /* CocktailMakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailMakeViewController.swift; sourceTree = "<group>"; };
 		192EBFF31DD6F033006A77F4 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		192EBFF61DD6F043006A77F4 /* Cocktail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCoordinator.swift; sourceTree = "<group>"; };
 		192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailTableViewCell.swift; sourceTree = "<group>"; };
-		192EC00D1DD73A9A006A77F4 /* MenuTopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTopTableViewCell.swift; sourceTree = "<group>"; };
-		192EC00F1DD73AA4006A77F4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1939D66E1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 		1939D6701DE086860042269C /* CocktailSelectStartCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailSelectStartCollectionViewCell.swift; sourceTree = "<group>"; };
 		198E38981DE07F7600698D61 /* base.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base.csv; path = ../DB/base.csv; sourceTree = "<group>"; };
@@ -216,8 +210,6 @@
 			children = (
 				192EBFEC1DD6ED55006A77F4 /* HomeViewController.swift */,
 				192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */,
-				192EC00D1DD73A9A006A77F4 /* MenuTopTableViewCell.swift */,
-				192EC00F1DD73AA4006A77F4 /* MenuTableViewCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -225,7 +217,6 @@
 		192EC0131DD7653A006A77F4 /* CocktailDetail */ = {
 			isa = PBXGroup;
 			children = (
-				192EBFEE1DD6ED64006A77F4 /* CocktailDatailViewController.swift */,
 			);
 			name = CocktailDetail;
 			sourceTree = "<group>";
@@ -548,8 +539,6 @@
 			files = (
 				192EBFF11DD6ED8D006A77F4 /* CocktailMakeViewController.swift in Sources */,
 				192EBFFD1DD6F1DD006A77F4 /* BaseCoordinator.swift in Sources */,
-				192EC0101DD73AA4006A77F4 /* MenuTableViewCell.swift in Sources */,
-				192EC00E1DD73A9A006A77F4 /* MenuTopTableViewCell.swift in Sources */,
 				1939D6711DE086860042269C /* CocktailSelectStartCollectionViewCell.swift in Sources */,
 				192EC00C1DD70EA7006A77F4 /* CocktailTableViewCell.swift in Sources */,
 				192EBFEB1DD6ED4B006A77F4 /* SelectCocktailBaseViewController.swift in Sources */,
@@ -557,7 +546,6 @@
 				1939D66F1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift in Sources */,
 				192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */,
 				192EBFF71DD6F043006A77F4 /* Cocktail.swift in Sources */,
-				192EBFEF1DD6ED64006A77F4 /* CocktailDatailViewController.swift in Sources */,
 				192EBFE91DD6ECEA006A77F4 /* WelcomeViewController.swift in Sources */,
 				192EBFF41DD6F033006A77F4 /* Base.swift in Sources */,
 				192EBFED1DD6ED55006A77F4 /* HomeViewController.swift in Sources */,

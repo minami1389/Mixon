@@ -12,6 +12,8 @@ class CocktailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cocktailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tasteLabel: UILabel!
+    @IBOutlet weak var coverView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
