@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,19 +18,21 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="p6i-ha-hFY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixon_splash" translatesAutoresizingMaskIntoConstraints="NO" id="lKY-0j-xqD">
+                                <rect key="frame" x="229" y="151.5" width="209" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lKY-0j-xqD" secondAttribute="height" multiplier="35:12" id="a49-Ls-EwY"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.75686274509803919" green="0.28235294117647058" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="p6i-ha-hFY" secondAttribute="trailing" id="3Ja-FK-HmR"/>
-                            <constraint firstItem="p6i-ha-hFY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Zjc-W9-abM"/>
-                            <constraint firstItem="p6i-ha-hFY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="cg5-lQ-TxG"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="p6i-ha-hFY" secondAttribute="bottom" id="vYB-E3-ge6"/>
+                            <constraint firstItem="lKY-0j-xqD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="229" id="BON-Zk-W3U"/>
+                            <constraint firstAttribute="trailing" secondItem="lKY-0j-xqD" secondAttribute="trailing" constant="229" id="We6-hb-Apl"/>
+                            <constraint firstItem="lKY-0j-xqD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="v4X-ke-LTF"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="642" height="1078"/>
+        <image name="mixon_splash" width="210" height="72"/>
     </resources>
 </document>

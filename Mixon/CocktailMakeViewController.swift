@@ -11,9 +11,11 @@ import CoreBluetooth
 
 class CocktailMakeViewController: UIViewController {
 
-    var cocktail: Cocktail?
+    var cocktail: Cocktail!
     var step = 0
-    var totalStep = 6
+    var totalStep = 7
+    var quantity: Float = 0
+    var zeroQuantity:Float = 0
     
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -37,14 +39,31 @@ class CocktailMakeViewController: UIViewController {
     var notifyCharacteristic: CBCharacteristic?
     var centralManager: CBCentralManager?
     
+    @IBOutlet weak var contentView: UIView!
+    
+    @IBOutlet weak var mixedView: UIView!
+    @IBOutlet weak var mixedNameLabel: UILabel!
+    @IBOutlet weak var mixedNameEnLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 44)
         closeButton.setTitle(String.fontAwesomeIcon(name: .timesCircle), for: .normal)
-        
-
+        //fetchTotalStep()
         updateView()
-        
+    }
+    
+    func fetchTotalStep() {
+        totalStep = 7
+        if cocktail.quantity1 == 0 {
+            totalStep = 2
+        } else if cocktail.quantity2 == 0 {
+            totalStep = 3
+        } else if cocktail.quantity3 == 0 {
+            totalStep = 4
+        } else if cocktail.quantity4 == 0 {
+            totalStep = 5
+        }
     }
     
     func updateView() {
@@ -55,72 +74,88 @@ class CocktailMakeViewController: UIViewController {
         stepLabel.text = "STEP \(step)/\(totalStep)"
         cocktailNameLabel.text = cocktail.name
         cocktailNameEnLabel.text = cocktail.name
+        mixedNameLabel.text = cocktail.name
+        mixedNameEnLabel.text = cocktail.name
         
         nextButton.isHidden = (step > 2)
         nextLabel.isHidden = (step > 2)
         quantityLabel.isHidden = (step <= 2)
-        imageView.isHidden = (step > 2)
-        effectView.isHidden = (step > 2)
+        imageView.isHidden = (step > 2 && step < 8)
+        effectView.isHidden = (step > 2 && step < 8)
+        
+        contentView.isHidden = (step == 8)
+        mixedView.isHidden = (step != 8)
         
         switch step {
         case 1:
             detailLabel.text = "デバイスにグラスを乗せてください"
         case 2:
-            write(values: ["1,100,50,30,20"])
             detailLabel.text = "グラスに氷を入れてください"
         case 3:
-            write(values: ["2,4"])
+            zeroQuantity = quantity
+            print("zero: \(zeroQuantity)")
+            write(value: "1,193,72,149")
             detailLabel.text = cocktail.material1
             quantityLabel.text = "\(cocktail.quantity1)ml"
             view.backgroundColor = UIColor.init(red: 193/255, green: 72/255, blue: 149/255, alpha: 1.0)
         case 4:
-            write(values: ["3"])
+            write(value: "1,206,75,75")
             detailLabel.text = cocktail.material2
             quantityLabel.text = "\(cocktail.quantity2)ml"
-            view.backgroundColor = UIColor.init(red: 206/255, green: 75/255, blue: 75/255, alpha: 1.0)
+            view.backgroundColor = UIColor.init(red: 75/255, green: 182/255, blue: 205/255, alpha: 1.0)
         case 5:
+            write(value: "1,75,182,206")
             detailLabel.text = cocktail.material3
             quantityLabel.text = "\(cocktail.quantity3)ml"
-            view.backgroundColor = UIColor.init(red: 75/255, green: 182/255, blue: 206/255, alpha: 1.0)
+            view.backgroundColor = UIColor.init(red: 205/255, green: 75/255, blue: 75/255, alpha: 1.0)
         case 6:
+            write(value: "1,184,206,75")
             detailLabel.text = cocktail.material4
             quantityLabel.text = "\(cocktail.quantity4)ml"
-            view.backgroundColor = UIColor.init(red: 184/255, green: 206/255, blue: 75/255, alpha: 1.0)
+            view.backgroundColor = UIColor.init(red: 183/255, green: 205/255, blue: 75/255, alpha: 1.0)
+        case 7:
+            write(value: "1,141,75,205")
+            detailLabel.text = cocktail.material1
+            quantityLabel.text = "\(cocktail.quantity1)ml"
+            view.backgroundColor = UIColor.init(red: 141/255, green: 75/255, blue: 205/255, alpha: 1.0)
+        case 8:
+            write(value: "1,255,255,255")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                self.write(value: "2")
+                self.close()
+            }
         default:
             break
         }
     }
     
     func next() {
-        switch step {
-        case 3:
-            if cocktail?.material2 == "" {
-                return
-            }
-        case 4:
-            if cocktail?.material3 == "" {
-                return
-            }
-        case 5:
-            if cocktail?.material4 == "" {
-                return
-            }
-        case 6:
-            return
-        default:
-            break
+        step += 1
+        if totalStep < step {
+            step = 8
         }
         
-        step += 1
         UIView.animate(withDuration: 0.3, animations: {
             self.updateView()
         })
     }
+    
+    func close() {
+        print("close")
+        dismiss(animated: true, completion: {
+            self.centralManager?.stopScan()
+            if let mixon = self.mixon {
+                self.centralManager?.cancelPeripheralConnection(mixon)
+                if let characteristic = self.notifyCharacteristic {
+                    mixon.setNotifyValue(false, for: characteristic)
+                }
+            }
+        })
+    }
 
-    @IBAction func didTap(_ sender: Any) {
+    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         next()
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
@@ -131,15 +166,7 @@ class CocktailMakeViewController: UIViewController {
         next()
     }
     @IBAction func didTapCloseButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: {
-            self.centralManager?.stopScan()
-            if let mixon = self.mixon {
-                self.centralManager?.cancelPeripheralConnection(mixon)
-                if let characteristic = self.notifyCharacteristic {
-                    mixon.setNotifyValue(false, for: characteristic)
-                }
-            }
-        })
+        close()
     }
 }
 
@@ -163,12 +190,6 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-//        print("----- Discover Peripheral -----")
-//        print("name: \(peripheral.name)")
-//        print("advertisementData:\(advertisementData)")
-//        print("uuid: \(peripheral.identifier.uuidString)")
-//        print("-------------------------------")
-        
         if peripheral.identifier.uuidString == uuid {
             print("Discover Mixon")
             mixon = peripheral
@@ -208,7 +229,10 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
             if characteristic.uuid.uuidString == writeCharacteristicUUID {
                 print("Discover Write Characteristics")
                 writeCharacteristic = characteristic
-                write(values: ["0", "1,255,255,255"])
+                write(value: "0")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.write(value: "1,255,255,255")
+                }
             } else if characteristic.uuid.uuidString == notifyCharacteristicUUID {
                 print("Discover Notify Characteristics")
                 notifyCharacteristic = characteristic
@@ -217,21 +241,47 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
         }
     }
     
-    func write(values: [String]) {
+    func write(value: String) {
         guard let writeCharacteristic = writeCharacteristic else { return }
-        for value in values {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                if let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) {
-                    self.mixon?.writeValue(data, for: writeCharacteristic, type: CBCharacteristicWriteType.withResponse)
+        if let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+            self.mixon?.writeValue(data, for: writeCharacteristic, type: CBCharacteristicWriteType.withResponse)
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        guard let data = characteristic.value else { return }
+        if let text = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
+            if text.characters.count == 6 {
+                if let value = Float(text) {
+                    quantity = value
+                    if quantity - zeroQuantity > threshold() && step > 2 {
+                        print("--- next ---")
+                        print("threshold: \(threshold())")
+                        print("zero: \(zeroQuantity)")
+                        print("quantity: \(quantity)")
+                        print("------------")
+                        next()
+                        zeroQuantity = quantity
+                    }
                 }
             }
         }
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        if let data = characteristic.value {
-            let text = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print("Mixon Value:\(text)")
+    func threshold() -> Float {
+        switch step {
+        case 3:
+            return Float(cocktail.quantity1)
+        case 4:
+            return Float(cocktail.quantity2)
+        case 5:
+            return Float(cocktail.quantity3)
+        case 6:
+            return Float(cocktail.quantity4)
+        case 7:
+            return Float(cocktail.quantity4)
+        default:
+            return 0
         }
     }
     

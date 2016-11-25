@@ -10,5 +10,6 @@ import UIKit
 
 class CocktailSelectStartCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var arrowLabel: UILabel!
+    @IBOutlet weak var coverView: UIView!
+
 }

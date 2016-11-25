@@ -31,8 +31,8 @@ extension SelectCocktailBaseViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == bases.count {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CocktailSelectStartCollectionViewCell", for: indexPath) as! CocktailSelectStartCollectionViewCell
-            cell.arrowLabel.font = UIFont.fontAwesome(ofSize: 28)
-            cell.arrowLabel.text = String.fontAwesomeIcon(name: .angleDoubleRight)
+            cell.coverView.alpha = 0.8
+            cell.isUserInteractionEnabled = false
             return cell
             
         }
@@ -46,38 +46,48 @@ extension SelectCocktailBaseViewController: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item != bases.count {
-            let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
-            cell.coverView.isHidden = true
-            selected[indexPath.item] = true
+        if indexPath.item == bases.count {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+                CocktailCoordinator.sharedCoordinator.baseID = -1
+                CocktailCoordinator.sharedCoordinator.haveCocktails = selected
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
+            }
             return
         }
         
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-            CocktailCoordinator.sharedCoordinator.baseID = -1
-            CocktailCoordinator.sharedCoordinator.haveCocktails = selected
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true, completion: nil)
+        let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
+        cell.coverView.alpha = 0.0
+        selected[indexPath.item] = true
+        
+        let startCell = collectionView.cellForItem(at: IndexPath(item:bases.count, section:0)) as! CocktailSelectStartCollectionViewCell
+        if startCell.coverView.alpha > 0.5 {
+            startCell.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 0.3, animations: {
+                startCell.coverView.alpha = 0.0
+            })
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if indexPath.item != bases.count {
-            let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
-            cell.coverView.isHidden = false
-            selected[indexPath.item] = false
+        if indexPath.item == bases.count {
             return
+        }
+        let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
+        selected[indexPath.item] = false
+        cell.coverView.alpha = 0.8
+        
+        let startCell = collectionView.cellForItem(at: IndexPath(item:bases.count, section:0)) as! CocktailSelectStartCollectionViewCell
+        if startCell.coverView.alpha < 0.5 && !selected.contains(true) {
+            startCell.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.3, animations: {
+                startCell.coverView.alpha = 0.8
+            })
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let margin: CGFloat = 6
-        let row: CGFloat = 2
-        let column: CGFloat = 5
-        let ratio: CGFloat = 142/123
-        let width = (collectionView.frame.size.width - margin * (column - 1)) / column
-        let height = (collectionView.frame.size.height - margin * (row - 1)) / row
-        return CGSize(width: width, height: width*ratio)
+        return CGSize(width: 123, height: 142)
     }
     
     
