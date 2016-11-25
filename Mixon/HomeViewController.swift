@@ -34,8 +34,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var contentOffSet = CGPoint(x:0, y:0)
-    
-    var didLoad = false
+    @IBOutlet weak var scrollCoverView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +50,7 @@ class HomeViewController: UIViewController {
         setDetailView(cocktail: cocktails[selectedRow])
         
         prepareMenuTab()
+        prepareMenuGradienView()
     }
     
     func prepareMenuTab() {
@@ -87,6 +87,17 @@ class HomeViewController: UIViewController {
         contentOffSet = scrollView.contentOffset
     }
     
+    func prepareMenuGradienView() {
+        let startColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.85).cgColor
+        let endColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+        let layer = CAGradientLayer()
+        layer.colors = [startColor, endColor, startColor]
+        layer.startPoint = CGPoint(x:0, y:0.5)
+        layer.endPoint = CGPoint(x:1, y:0.5)
+        layer.frame = scrollCoverView.frame
+        scrollCoverView.layer.addSublayer(layer)
+    }
+    
     func menuLabel(title:String, x:CGFloat) -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
@@ -120,11 +131,6 @@ class HomeViewController: UIViewController {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        didLoad = true
-    }
-    
     @IBAction func didTapMakeButton(_ sender: UIButton) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailMakeViewController") as? CocktailMakeViewController {
             vc.cocktail = cocktails[selectedRow]
@@ -143,6 +149,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard scrollView == self.scrollView else { return }
         let index = Int((scrollView.contentOffset.x + 50) / 100) 
         let x = index * 100
         UIView.animate(withDuration: 0.3, animations: {
@@ -151,6 +158,7 @@ extension HomeViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard scrollView == self.scrollView else { return }
         let index = Int((scrollView.contentOffset.x - 50) / 100) + 1
         let x = index * 100
         UIView.animate(withDuration: 1.0, animations: {
@@ -171,17 +179,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CocktailTableViewCell", for: indexPath) as? CocktailTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CocktailTableViewCell") as? CocktailTableViewCell else {
             return UITableViewCell()
         }
         
         let cocktail = cocktails[indexPath.row]
         cell.titleLabel.text = cocktail.name
         cell.cocktailImageView.image = UIImage(named: cocktail.image)
-        if !didLoad && indexPath.row == selectedRow {
+        if indexPath.row == selectedRow {
             cell.coverView.isHidden = true
             cell.titleLabel.isHidden = true
             cell.tasteLabel.isHidden = true
+        } else {
+                cell.coverView.isHidden = false
+            cell.titleLabel.isHidden = false
+            cell.tasteLabel.isHidden = false
         }
         return cell
         
@@ -190,32 +202,41 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case selectedRow:
-            return 150
+            return 156
         default:
-            return 44
+            return 50
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.beginUpdates()
         
-        if let cell = tableView.cellForRow(at: IndexPath(row: selectedRow, section: 0)) as? CocktailTableViewCell {
-            cell.coverView.isHidden = false
-            cell.titleLabel.isHidden = false
-            cell.tasteLabel.isHidden = false
-            selectedRow = -1
-        }
-    
+        UIView.animate(withDuration: 0.3, animations: {
+            let y = indexPath.row * 50 - 76
+            tableView.contentOffset = CGPoint(x:0, y:y)
+            self.setDetailView(cocktail: self.cocktails[indexPath.row])
+        })
         
-        let cell = tableView.cellForRow(at: indexPath) as! CocktailTableViewCell
-        cell.coverView.isHidden = true
-        cell.titleLabel.isHidden = true
-        cell.tasteLabel.isHidden = true
-        selectedRow = indexPath.row
-        
-        tableView.endUpdates()
-        
-        self.setDetailView(cocktail: self.cocktails[self.selectedRow])
+        let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+            tableView.beginUpdates()
+            
+            if let cell = tableView.cellForRow(at: IndexPath(row: self.selectedRow, section: 0)) as? CocktailTableViewCell {
+                cell.coverView.isHidden = false
+                cell.titleLabel.isHidden = false
+                cell.tasteLabel.isHidden = false
+                self.selectedRow = -1
+            }
+            
+            
+            let cell = tableView.cellForRow(at: indexPath) as! CocktailTableViewCell
+            cell.coverView.isHidden = true
+            cell.titleLabel.isHidden = true
+            cell.tasteLabel.isHidden = true
+            self.selectedRow = indexPath.row
+            
+            tableView.endUpdates()
+        })
+      
     }
     
 }
