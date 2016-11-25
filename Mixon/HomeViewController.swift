@@ -32,18 +32,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var material5Label: UILabel!
     @IBOutlet weak var tasteLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    var contentOffSet = CGPoint(x:0, y:0)
+    
     var didLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        
-        menuButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
-        searchButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
-        menuButton.setTitle(String.fontAwesomeIcon(name: .bars), for: .normal)
-        searchButton.setTitle(String.fontAwesomeIcon(name: .search), for: .normal)
         
         bases = BaseCoordinator.sharedCoordinator.fetch()
         cocktails = CocktailCoordinator.sharedCoordinator.fetch()
@@ -52,6 +49,52 @@ class HomeViewController: UIViewController {
         
         //DetailView
         setDetailView(cocktail: cocktails[selectedRow])
+        
+        prepareMenuTab()
+    }
+    
+    func prepareMenuTab() {
+        var bases = BaseCoordinator.sharedCoordinator.fetch()
+        let others = bases[4]
+        bases.remove(at: 4)
+        bases.append(others)
+        
+        let width:CGFloat = 100
+        let headLabelWidth = scrollView.frame.size.width/2 - width/2
+        let headLabel = UILabel()
+        headLabel.frame = CGRect(x:0, y:0, width:headLabelWidth, height:43)
+        scrollView.addSubview(headLabel)
+        
+        var originX:CGFloat = headLabelWidth
+        for base in bases {
+            scrollView.addSubview(menuLabel(title: base.nameJp, x: originX))
+            originX += width
+            if base.nameJp == "ラム" {
+                scrollView.addSubview(menuLabel(title: "おすすめ", x: originX))
+                originX += width
+            }
+        }
+        
+        let tailLabel = UILabel()
+        tailLabel.frame = CGRect(x:originX, y:0, width:headLabelWidth, height:43)
+        scrollView.addSubview(tailLabel)
+        originX += headLabelWidth
+        
+        scrollView.contentSize = CGSize(width:originX, height:scrollView.frame.size.height)
+        
+        let diff =  headLabelWidth + 450 - scrollView.frame.size.width / 2
+        scrollView.contentOffset = CGPoint(x:diff, y:scrollView.contentOffset.y)
+        contentOffSet = scrollView.contentOffset
+    }
+    
+    func menuLabel(title:String, x:CGFloat) -> UILabel {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.frame = CGRect(x:x, y:0, width:100, height:43)
+        label.font = UIFont(name: "HiraKakuProN-W6",size: 15.0)
+        label.textColor = UIColor.white
+        label.text = title
+        return label
     }
     
     func setDetailView(cocktail: Cocktail) {
@@ -95,6 +138,24 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func didTapSearchButton(_ sender: UIButton) {
+    }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let index = Int((scrollView.contentOffset.x + 50) / 100) 
+        let x = index * 100
+        UIView.animate(withDuration: 0.3, animations: {
+            scrollView.contentOffset = CGPoint(x:x, y:0)
+        })
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int((scrollView.contentOffset.x - 50) / 100) + 1
+        let x = index * 100
+        UIView.animate(withDuration: 1.0, animations: {
+            scrollView.contentOffset = CGPoint(x:x, y:0)
+        })
     }
 }
 
