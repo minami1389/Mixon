@@ -11,6 +11,8 @@ import RealmSwift
 class BaseCoordinator: NSObject {
     static let sharedCoordinator = BaseCoordinator()
     
+    var haveBases = [Bool]()
+    
     func fetch() -> [Base] {
         
         var bases = [Base]()

@@ -10,10 +10,9 @@ import RealmSwift
 
 class CocktailCoordinator: NSObject {
     static let sharedCoordinator = CocktailCoordinator()
-    var baseID = 0
     var haveCocktails = [Bool]()
     
-    func fetch() -> [Cocktail] {
+    func fetch(baseID: Int) -> [Cocktail] {
         
         var cocktails = [Cocktail]()
         let config = Realm.Configuration(fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"), readOnly: true)

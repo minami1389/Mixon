@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     
     var selectedRow = 0
     
+    var numberOfRow = 0
+    
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cocktailTableView: UITableView!
@@ -36,21 +38,45 @@ class HomeViewController: UIViewController {
     var contentOffSet = CGPoint(x:0, y:0)
     @IBOutlet weak var scrollCoverView: UIView!
     
+    var didLoad = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         bases = BaseCoordinator.sharedCoordinator.fetch()
-        cocktails = CocktailCoordinator.sharedCoordinator.fetch()
-        
+        let have = BaseCoordinator.sharedCoordinator.haveBases
+        for i in 0..<bases.count {
+            if have[i] {
+                cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i+1)
+            }
+        }
+        numberOfRow = cocktails.count
         cocktailTableView.reloadData()
         
         //DetailView
-        setDetailView(cocktail: cocktails[selectedRow])
+        if cocktails.count != 0 {
+            setDetailView(cocktail: cocktails[selectedRow])
+        }
         
         prepareMenuTab()
         prepareMenuGradienView()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if !didLoad {
+            UIView.animate(withDuration: 0.3, animations: {
+                let y = 0 * 50 - 76
+                self.cocktailTableView.contentOffset = CGPoint(x:0, y:y)
+            })
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        didLoad = true
     }
     
     func prepareMenuTab() {
@@ -141,6 +167,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func didTapMenuButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: {})
     }
 
     @IBAction func didTapSearchButton(_ sender: UIButton) {
@@ -155,6 +182,7 @@ extension HomeViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             scrollView.contentOffset = CGPoint(x:x, y:0)
         })
+        didSelectBaseCategory(index: index)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -164,6 +192,35 @@ extension HomeViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: 1.0, animations: {
             scrollView.contentOffset = CGPoint(x:x, y:0)
         })
+        didSelectBaseCategory(index: index)
+    }
+    
+    func didSelectBaseCategory(index: Int) {
+        cocktails = []
+        if index == 9 { //その他
+            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: 5)
+        } else if index == 4 { //おすすめ
+            let have = BaseCoordinator.sharedCoordinator.haveBases
+            for i in 0..<bases.count {
+                if have[i] {
+                    cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i+1)
+                }
+            }
+        } else {
+            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: index+1)
+        }
+        
+        numberOfRow = cocktails.count
+        selectedRow = 0
+        cocktailTableView.reloadData()
+        if cocktails.count != 0 {
+            setDetailView(cocktail: cocktails[selectedRow])
+        }
+        UIView.animate(withDuration: 0.3, animations: {
+            let y = 0 * 50 - 76
+            self.cocktailTableView.contentOffset = CGPoint(x:0, y:y)
+        })
+        
     }
 }
 
@@ -172,7 +229,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case cocktailTableView:
-            return cocktails.count
+            return numberOfRow
         default:
             return 0
         }
@@ -183,6 +240,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        if indexPath.row >= cocktails.count {
+            cell.isHidden = true
+            return cell
+        }
+        
+        cell.isHidden = false
         let cocktail = cocktails[indexPath.row]
         cell.titleLabel.text = cocktail.name
         cell.cocktailImageView.image = UIImage(named: cocktail.image)
@@ -191,7 +254,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.isHidden = true
             cell.tasteLabel.isHidden = true
         } else {
-                cell.coverView.isHidden = false
+            cell.coverView.isHidden = false
             cell.titleLabel.isHidden = false
             cell.tasteLabel.isHidden = false
         }
@@ -203,6 +266,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case selectedRow:
             return 156
+        case cocktails.count:
+            if selectedRow == cocktails.count - 1 {
+                return 93
+            } else {
+                return 43
+            }
         default:
             return 50
         }
@@ -215,6 +284,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.contentOffset = CGPoint(x:0, y:y)
             self.setDetailView(cocktail: self.cocktails[indexPath.row])
         })
+        
+        if indexPath.row > cocktails.count - 3 && cocktails.count > 2 {
+            numberOfRow = cocktails.count + 1
+        } else {
+            numberOfRow = cocktails.count
+        }
+        cocktailTableView.reloadData()
         
         let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {

@@ -47,9 +47,9 @@ extension SelectCocktailBaseViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == bases.count {
+            collectionView.deselectItem(at: indexPath, animated: false)
             if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-                CocktailCoordinator.sharedCoordinator.baseID = -1
-                CocktailCoordinator.sharedCoordinator.haveCocktails = selected
+                BaseCoordinator.sharedCoordinator.haveBases = selected
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true, completion: nil)
             }
