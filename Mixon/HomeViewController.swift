@@ -38,6 +38,8 @@ class HomeViewController: UIViewController {
     var contentOffSet = CGPoint(x:0, y:0)
     @IBOutlet weak var scrollCoverView: UIView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarOriginY: NSLayoutConstraint!
     var didLoad = false
     
     override func viewDidLoad() {
@@ -63,6 +65,7 @@ class HomeViewController: UIViewController {
         prepareMenuTab()
         prepareMenuGradienView()
         
+        searchBarOriginY.constant = -searchBar.frame.size.height
     }
     
     override func viewDidLayoutSubviews() {
@@ -171,6 +174,21 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func didTapSearchButton(_ sender: UIButton) {
+        if searchBarOriginY.constant == 0 {
+            searchBarOriginY.constant = -searchBar.frame.size.height
+            searchBar.resignFirstResponder()
+        } else {
+            searchBarOriginY.constant = 0
+        }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
     }
 }
 

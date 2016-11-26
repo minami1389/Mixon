@@ -28,6 +28,7 @@ class CocktailMakeViewController: UIViewController {
     
     @IBOutlet weak var effectView: UIVisualEffectView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var detailNextLabel: UILabel!
     
     let uuid = "EF6CE85F-95B6-F511-6394-A5EB127973CB"
     let serviceUUID = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
@@ -45,11 +46,19 @@ class CocktailMakeViewController: UIViewController {
     @IBOutlet weak var mixedNameLabel: UILabel!
     @IBOutlet weak var mixedNameEnLabel: UILabel!
     
+    //Color Debug
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var blueSlider: UISlider!
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 44)
         closeButton.setTitle(String.fontAwesomeIcon(name: .timesCircle), for: .normal)
-        //fetchTotalStep()
+        fetchTotalStep()
         updateView()
     }
     
@@ -80,6 +89,7 @@ class CocktailMakeViewController: UIViewController {
         nextButton.isHidden = (step > 2)
         nextLabel.isHidden = (step > 2)
         quantityLabel.isHidden = (step <= 2)
+        detailNextLabel.isHidden = (step <= 2)
         imageView.isHidden = (step > 2 && step < 8)
         effectView.isHidden = (step > 2 && step < 8)
         
@@ -154,7 +164,7 @@ class CocktailMakeViewController: UIViewController {
     }
 
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
-        next()
+        //next()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -167,6 +177,23 @@ class CocktailMakeViewController: UIViewController {
     }
     @IBAction func didTapCloseButton(_ sender: UIButton) {
         close()
+    }
+    
+    @IBAction func didValueChangeRedSlider(_ sender: UISlider) {
+        let value = "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))"
+        redLabel.text = Int(redSlider.value).description
+        write(value: value)
+    }
+    
+    @IBAction func didValueChangeGreenSlider(_ sender: UISlider) {
+        let value = "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))"
+        greenLabel.text = Int(greenSlider.value).description
+        write(value: value)
+    }
+    @IBAction func didValueChangeBlueSlider(_ sender: UISlider) {
+        let value = "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))"
+        blueLabel.text = Int(blueSlider.value).description
+        write(value: value)
     }
 }
 
