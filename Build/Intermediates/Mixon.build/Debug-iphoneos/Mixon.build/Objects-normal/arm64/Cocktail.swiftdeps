@@ -1,0 +1,347 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Cocktail"
+provides-nominal:
+- "C5Mixon8Cocktail"
+provides-member:
+- ["C5Mixon8Cocktail", ""]
+provides-dynamic-lookup:
+- "detail"
+- "quantity1"
+- "quantity2"
+- "material3"
+- "favorite"
+- "quantity4"
+- "quantity3"
+- "material2"
+- "material1"
+- "id"
+- "material4"
+- "name"
+- "baseID"
+- "image"
+depends-top-level:
+- "Object"
+- "StringLiteralType"
+- "Cocktail"
+- "BooleanLiteralType"
+depends-member:
+- ["Ps9AnyObject", "baseID"]
+- ["Ps9AnyObject", "detail"]
+- ["Ps9AnyObject", "favorite"]
+- ["Ps9AnyObject", "id"]
+- ["Ps9AnyObject", "image"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "material1"]
+- ["Ps9AnyObject", "material2"]
+- ["Ps9AnyObject", "material3"]
+- ["Ps9AnyObject", "material4"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "quantity1"]
+- ["Ps9AnyObject", "quantity2"]
+- ["Ps9AnyObject", "quantity3"]
+- ["Ps9AnyObject", "quantity4"]
+- ["Ps9AnyObject", ""]
+- ["Sb", "deinit"]
+- ["Ps7CVarArg", "baseID"]
+- ["Ps7CVarArg", "detail"]
+- ["Ps7CVarArg", "favorite"]
+- ["Ps7CVarArg", "id"]
+- ["Ps7CVarArg", "image"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "material1"]
+- ["Ps7CVarArg", "material2"]
+- ["Ps7CVarArg", "material3"]
+- ["Ps7CVarArg", "material4"]
+- ["Ps7CVarArg", "name"]
+- ["Ps7CVarArg", "quantity1"]
+- ["Ps7CVarArg", "quantity2"]
+- ["Ps7CVarArg", "quantity3"]
+- ["Ps7CVarArg", "quantity4"]
+- ["Ps7CVarArg", ""]
+- ["C5Mixon8Cocktail", "baseID"]
+- ["C5Mixon8Cocktail", "deinit"]
+- ["C5Mixon8Cocktail", "detail"]
+- ["C5Mixon8Cocktail", "favorite"]
+- ["C5Mixon8Cocktail", "id"]
+- ["C5Mixon8Cocktail", "image"]
+- ["C5Mixon8Cocktail", "init"]
+- ["C5Mixon8Cocktail", "material1"]
+- ["C5Mixon8Cocktail", "material2"]
+- ["C5Mixon8Cocktail", "material3"]
+- ["C5Mixon8Cocktail", "material4"]
+- ["C5Mixon8Cocktail", "name"]
+- ["C5Mixon8Cocktail", "quantity1"]
+- ["C5Mixon8Cocktail", "quantity2"]
+- ["C5Mixon8Cocktail", "quantity3"]
+- ["C5Mixon8Cocktail", "quantity4"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "baseID"]
+- ["Ps28CustomDebugStringConvertible", "detail"]
+- ["Ps28CustomDebugStringConvertible", "favorite"]
+- ["Ps28CustomDebugStringConvertible", "id"]
+- ["Ps28CustomDebugStringConvertible", "image"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "material1"]
+- ["Ps28CustomDebugStringConvertible", "material2"]
+- ["Ps28CustomDebugStringConvertible", "material3"]
+- ["Ps28CustomDebugStringConvertible", "material4"]
+- ["Ps28CustomDebugStringConvertible", "name"]
+- ["Ps28CustomDebugStringConvertible", "quantity1"]
+- ["Ps28CustomDebugStringConvertible", "quantity2"]
+- ["Ps28CustomDebugStringConvertible", "quantity3"]
+- ["Ps28CustomDebugStringConvertible", "quantity4"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "baseID"]
+- ["Ps23CustomStringConvertible", "detail"]
+- ["Ps23CustomStringConvertible", "favorite"]
+- ["Ps23CustomStringConvertible", "id"]
+- ["Ps23CustomStringConvertible", "image"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "material1"]
+- ["Ps23CustomStringConvertible", "material2"]
+- ["Ps23CustomStringConvertible", "material3"]
+- ["Ps23CustomStringConvertible", "material4"]
+- ["Ps23CustomStringConvertible", "name"]
+- ["Ps23CustomStringConvertible", "quantity1"]
+- ["Ps23CustomStringConvertible", "quantity2"]
+- ["Ps23CustomStringConvertible", "quantity3"]
+- ["Ps23CustomStringConvertible", "quantity4"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "baseID"]
+- ["Ps9Equatable", "detail"]
+- ["Ps9Equatable", "favorite"]
+- ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "image"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "material1"]
+- ["Ps9Equatable", "material2"]
+- ["Ps9Equatable", "material3"]
+- ["Ps9Equatable", "material4"]
+- ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "quantity1"]
+- ["Ps9Equatable", "quantity2"]
+- ["Ps9Equatable", "quantity3"]
+- ["Ps9Equatable", "quantity4"]
+- ["Ps9Equatable", ""]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps8Hashable", "baseID"]
+- ["Ps8Hashable", "detail"]
+- ["Ps8Hashable", "favorite"]
+- ["Ps8Hashable", "id"]
+- ["Ps8Hashable", "image"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "material1"]
+- ["Ps8Hashable", "material2"]
+- ["Ps8Hashable", "material3"]
+- ["Ps8Hashable", "material4"]
+- ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "quantity1"]
+- ["Ps8Hashable", "quantity2"]
+- ["Ps8Hashable", "quantity3"]
+- ["Ps8Hashable", "quantity4"]
+- ["Ps8Hashable", ""]
+- ["Si", "deinit"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["PSo8NSCoding", "init"]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "baseID"]
+- ["CSo8NSObject", "detail"]
+- ["CSo8NSObject", "favorite"]
+- ["CSo8NSObject", "id"]
+- ["CSo8NSObject", "image"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "material1"]
+- ["CSo8NSObject", "material2"]
+- ["CSo8NSObject", "material3"]
+- ["CSo8NSObject", "material4"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "quantity1"]
+- ["CSo8NSObject", "quantity2"]
+- ["CSo8NSObject", "quantity3"]
+- ["CSo8NSObject", "quantity4"]
+- ["PSo16NSObjectProtocol", "baseID"]
+- ["PSo16NSObjectProtocol", "detail"]
+- ["PSo16NSObjectProtocol", "favorite"]
+- ["PSo16NSObjectProtocol", "id"]
+- ["PSo16NSObjectProtocol", "image"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "material1"]
+- ["PSo16NSObjectProtocol", "material2"]
+- ["PSo16NSObjectProtocol", "material3"]
+- ["PSo16NSObjectProtocol", "material4"]
+- ["PSo16NSObjectProtocol", "name"]
+- ["PSo16NSObjectProtocol", "quantity1"]
+- ["PSo16NSObjectProtocol", "quantity2"]
+- ["PSo16NSObjectProtocol", "quantity3"]
+- ["PSo16NSObjectProtocol", "quantity4"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- ["C10RealmSwift6Object", "baseID"]
+- ["C10RealmSwift6Object", "deinit"]
+- ["C10RealmSwift6Object", "detail"]
+- ["C10RealmSwift6Object", "favorite"]
+- ["C10RealmSwift6Object", "id"]
+- ["C10RealmSwift6Object", "image"]
+- ["C10RealmSwift6Object", "init"]
+- ["C10RealmSwift6Object", "material1"]
+- ["C10RealmSwift6Object", "material2"]
+- ["C10RealmSwift6Object", "material3"]
+- ["C10RealmSwift6Object", "material4"]
+- ["C10RealmSwift6Object", "name"]
+- ["C10RealmSwift6Object", "quantity1"]
+- ["C10RealmSwift6Object", "quantity2"]
+- ["C10RealmSwift6Object", "quantity3"]
+- ["C10RealmSwift6Object", "quantity4"]
+- ["C10RealmSwift6Object", ""]
+- ["CSo13RLMObjectBase", "baseID"]
+- ["CSo13RLMObjectBase", "detail"]
+- ["CSo13RLMObjectBase", "favorite"]
+- ["CSo13RLMObjectBase", "id"]
+- ["CSo13RLMObjectBase", "image"]
+- ["CSo13RLMObjectBase", "init"]
+- ["CSo13RLMObjectBase", "material1"]
+- ["CSo13RLMObjectBase", "material2"]
+- ["CSo13RLMObjectBase", "material3"]
+- ["CSo13RLMObjectBase", "material4"]
+- ["CSo13RLMObjectBase", "name"]
+- ["CSo13RLMObjectBase", "quantity1"]
+- ["CSo13RLMObjectBase", "quantity2"]
+- ["CSo13RLMObjectBase", "quantity3"]
+- ["CSo13RLMObjectBase", "quantity4"]
+- ["CSo15RLMObjectSchema", "deinit"]
+- ["CSo8RLMRealm", "deinit"]
+- ["CSo9RLMSchema", "deinit"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "baseID"]
+- ["Ps9_Hashable", "detail"]
+- ["Ps9_Hashable", "favorite"]
+- ["Ps9_Hashable", "id"]
+- ["Ps9_Hashable", "image"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "material1"]
+- ["Ps9_Hashable", "material2"]
+- ["Ps9_Hashable", "material3"]
+- ["Ps9_Hashable", "material4"]
+- ["Ps9_Hashable", "name"]
+- ["Ps9_Hashable", "quantity1"]
+- ["Ps9_Hashable", "quantity2"]
+- ["Ps9_Hashable", "quantity3"]
+- ["Ps9_Hashable", "quantity4"]
+- ["Ps9_Hashable", ""]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- "Ps7CVarArg"
+- "C5Mixon8Cocktail"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Si"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "C10RealmSwift6Object"
+- "CSo13RLMObjectBase"
+- "CSo15RLMObjectSchema"
+- "CSo8RLMRealm"
+- "CSo9RLMSchema"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Modules/RealmSwift.swiftmodule/arm64.swiftmodule"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMRealm_Dynamic.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMSyncConfiguration_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMSchema_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMResults_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMRealm_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMRealmConfiguration_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMProperty_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMOptionalBase.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMObject_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMObjectStore.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMObjectSchema_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMObjectBase_Dynamic.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMListBase.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMArray_Private.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/PrivateHeaders/RLMAccessor.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSyncUser.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSyncSession.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSyncManager.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSyncCredential.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSyncConfiguration.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSchema.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMResults.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMSyncUtil.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMRealmConfiguration+Sync.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMRealmConfiguration.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMRealm.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMConstants.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMProperty.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMPlatform.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMObjectSchema.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMObjectBase.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMObject.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMMigration.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMCollection.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/RLMArray.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/Realm.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Modules/module.modulemap"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Headers/RealmSwift-Swift.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Headers/RealmSwift-umbrella.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Modules/module.modulemap"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Modules/FontAwesome_swift.swiftmodule/arm64.swiftmodule"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Headers/FontAwesome_swift-Swift.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Headers/FontAwesome.swift-umbrella.h"
+- "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Modules/module.modulemap"
+interface-hash: "6c4d1c9a3b4fa365581f7e37173f33a2"

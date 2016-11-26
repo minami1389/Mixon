@@ -1,0 +1,18 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "5a3c6209cd9e419de0efcd73e0f70d50"
+build_time: [532282145, 360301000]
+inputs:
+  "/Users/minami1389/Develop/Mixon/Mixon/CocktailMakeViewController.swift": [532280729, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/BaseCoordinator.swift": [532266907, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/MenuTableViewCell.swift": [532267410, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/SelectCocktailTableViewCell.swift": [532250736, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/MenuTopTableViewCell.swift": [532267410, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/CocktailTableViewCell.swift": [532256042, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/SelectCocktailBaseViewController.swift": [532277015, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/AppDelegate.swift": [532270211, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/CocktailCoordinator.swift": [532277015, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/Cocktail.swift": [532269728, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/CocktailDatailViewController.swift": [532280729, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/WelcomeViewController.swift": [532247017, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/Base.swift": [532248180, 0]
+  "/Users/minami1389/Develop/Mixon/Mixon/HomeViewController.swift": [532279517, 0]

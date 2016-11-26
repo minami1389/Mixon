@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "a4d946602516b618f14d2a08997aca71"
+build_time: [532288194, 683985000]
+inputs:
+  "/Users/minami1389/Develop/Mixon/Pods/FontAwesome.swift/FontAwesome/Enum.swift": [532254107, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/FontAwesome.swift/FontAwesome/FontAwesome.swift": [532254107, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/FontAwesome.swift/FontAwesome/FontAwesomeView.swift": [532254107, 0]

@@ -1,0 +1,22 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "ea17a254f866f7b3794f5f3f5c91e99b"
+build_time: [532280148, 212617000]
+inputs:
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Aliases.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Error.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/LinkingObjects.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/List.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Migration.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Object.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/ObjectSchema.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Optional.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Property.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Realm.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/RealmCollection.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/RealmConfiguration.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Results.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Schema.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/SortDescriptor.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/SwiftVersion.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Sync.swift": [9223372036854775807, 0]
+  "/Users/minami1389/Develop/Mixon/Pods/RealmSwift/RealmSwift/Util.swift": [9223372036854775807, 0]

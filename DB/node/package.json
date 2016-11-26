@@ -1,0 +1,10 @@
+{
+  "name": "scraping",
+  "version": "0.0.1",
+  "description": "scraping sample",
+  "author": "Minami Baba",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio-httpcli":"*"
+  }
+}

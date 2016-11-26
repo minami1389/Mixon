@@ -1,0 +1,11 @@
+dependencies: \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/Realm/RLMNetworkClient.m \
+  /Users/minami1389/Develop/Mixon/Pods/Target\ Support\ Files/Realm/Realm-prefix.pch \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/Realm/module.modulemap \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMNetworkClient.h \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMSyncUtil_Private.h \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMSyncUtil.h \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMConstants.h \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMSyncCredential.h \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMRealmConfiguration.h \
+  /Users/minami1389/Develop/Mixon/Pods/Realm/include/RLMRealm.h

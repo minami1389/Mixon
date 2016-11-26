@@ -1,0 +1,109 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "FontAwesome.swift-umbrella.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Pods/Target Support Files/FontAwesome.swift/FontAwesome.swift-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "FontAwesome_swift-Swift.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Headers/FontAwesome_swift-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/FontAwesome.swift/FontAwesome_swift.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Intermediates/Pods.build/Debug-iphoneos/FontAwesome.swift.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Pods_Mixon.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-Mixon-umbrella.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Pods/Target Support Files/Pods-Mixon/Pods-Mixon-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_Mixon-Swift.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Pods_Mixon.framework/Headers/Pods_Mixon-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Pods_Mixon.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Intermediates/Pods.build/Debug-iphoneos/Pods-Mixon.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Realm-Swift.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Headers/Realm-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/Realm/Realm.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Intermediates/Pods.build/Debug-iphoneos/Realm.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "RealmSwift-Swift.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Headers/RealmSwift-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "RealmSwift-umbrella.h",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Pods/Target Support Files/RealmSwift/RealmSwift-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/minami1389/Develop/Mixon/Build/Products/Debug-iphoneos/RealmSwift/RealmSwift.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/minami1389/Develop/Mixon/Build/Intermediates/Pods.build/Debug-iphoneos/RealmSwift.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
