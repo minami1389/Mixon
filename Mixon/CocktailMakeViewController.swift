@@ -30,7 +30,7 @@ class CocktailMakeViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailNextLabel: UILabel!
     
-    let uuid = "EF6CE85F-95B6-F511-6394-A5EB127973CB"
+    let uuid = "2D826528-C989-9D27-A8FA-0CBF3E5431E5"
     let serviceUUID = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
     let writeCharacteristicUUID = "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
     let notifyCharacteristicUUID = "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
@@ -45,6 +45,9 @@ class CocktailMakeViewController: UIViewController {
     @IBOutlet weak var mixedView: UIView!
     @IBOutlet weak var mixedNameLabel: UILabel!
     @IBOutlet weak var mixedNameEnLabel: UILabel!
+    
+    var calcQuantityIndex = 0
+    var calcQuantitySum:Float = 0
     
     //Color Debug
     @IBOutlet weak var redSlider: UISlider!
@@ -180,20 +183,17 @@ class CocktailMakeViewController: UIViewController {
     }
     
     @IBAction func didValueChangeRedSlider(_ sender: UISlider) {
-        let value = "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))"
         redLabel.text = Int(redSlider.value).description
-        write(value: value)
     }
     
     @IBAction func didValueChangeGreenSlider(_ sender: UISlider) {
-        let value = "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))"
         greenLabel.text = Int(greenSlider.value).description
-        write(value: value)
     }
     @IBAction func didValueChangeBlueSlider(_ sender: UISlider) {
-        let value = "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))"
         blueLabel.text = Int(blueSlider.value).description
-        write(value: value)
+    }
+    @IBAction func didTapColorSendButton(_ sender: UIButton) {
+        write(value: "1,\(Int(redSlider.value)),\(Int(greenSlider.value)),\(Int(blueSlider.value))")
     }
 }
 
@@ -218,7 +218,6 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if peripheral.identifier.uuidString == uuid {
-            print("Discover Mixon")
             mixon = peripheral
             mixon?.delegate = self
             centralManager?.connect(mixon!, options: nil)
@@ -278,20 +277,29 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let data = characteristic.value else { return }
         if let text = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
-            if text.characters.count == 6 {
-                if let value = Float(text) {
-                    quantity = value
-                    if quantity - zeroQuantity > threshold() && step > 2 {
-                        print("--- next ---")
-                        print("threshold: \(threshold())")
-                        print("zero: \(zeroQuantity)")
-                        print("quantity: \(quantity)")
-                        print("------------")
-                        next()
-                        zeroQuantity = quantity
-                    }
+            
+            guard text.characters.count == 6 else { return }
+            guard let value = Float(text) else { return }
+            
+            calcQuantitySum += value
+            calcQuantityIndex += 1
+            let n = 10
+            if calcQuantityIndex == n {
+                quantity = calcQuantitySum / Float(n)
+                print("quantity: \(quantity)")
+                calcQuantityIndex = 0
+                calcQuantitySum = 0
+                if quantity - zeroQuantity > threshold() && step > 2 {
+                    print("--- next ---")
+                    print("threshold: \(threshold())")
+                    print("zero: \(zeroQuantity)")
+                    print("quantity: \(quantity)")
+                    print("------------")
+                    next()
+                    zeroQuantity = quantity
                 }
             }
+            
         }
     }
     

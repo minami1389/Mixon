@@ -34,12 +34,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var material5Label: UILabel!
     @IBOutlet weak var tasteLabel: UILabel!
     
+    @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     var contentOffSet = CGPoint(x:0, y:0)
     @IBOutlet weak var scrollCoverView: UIView!
     
+    @IBOutlet weak var searchResultLabel: UILabel!
+    @IBOutlet weak var searchResultView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchBarOriginY: NSLayoutConstraint!
+    var searchText = ""
+    
     var didLoad = false
     
     override func viewDidLoad() {
@@ -47,11 +52,25 @@ class HomeViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        menuView.isHidden = (searchText != "")
+        searchBar.isHidden = (searchText != "")
+        searchResultView.isHidden = (searchText == "")
+        searchResultLabel.text = "\"\(searchText)\"の検索結果"
+        
         bases = BaseCoordinator.sharedCoordinator.fetch()
-        let have = BaseCoordinator.sharedCoordinator.haveBases
-        for i in 0..<bases.count {
-            if have[i] {
-                cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i+1)
+        if searchText == "" {
+            let have = BaseCoordinator.sharedCoordinator.haveBases
+            for i in 0..<bases.count {
+                if have[i] {
+                    cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i+1)
+                }
+            }
+        } else {
+            let data = CocktailCoordinator.sharedCoordinator.fetch(baseID: -1)
+            for d in data {
+                if d.name.hasPrefix(searchText) {
+                    cocktails.append(d)
+                }
             }
         }
         numberOfRow = cocktails.count
@@ -179,17 +198,28 @@ class HomeViewController: UIViewController {
             searchBar.resignFirstResponder()
         } else {
             searchBarOriginY.constant = 0
+            searchBar.becomeFirstResponder()
         }
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
         })
     }
+    @IBAction func didTapSearchResultBackButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension HomeViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+            vc.searchText = searchBar.text!
+            navigationController?.show(vc, sender: self)
+        }
+        
     }
+    
 }
 
 extension HomeViewController: UIScrollViewDelegate {
