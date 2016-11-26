@@ -54,7 +54,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
         menuView.isHidden = (searchText != "")
         searchBar.isHidden = (searchText != "")
         searchResultView.isHidden = (searchText == "")
@@ -223,13 +222,13 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBarOriginY.constant = -searchBar.frame.size.height
         searchBar.resignFirstResponder()
-        searchBar.text = ""
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
         })
         if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
             vc.searchText = searchBar.text!
             navigationController?.show(vc, sender: self)
+            searchBar.text = ""
         }
         
     }
@@ -276,7 +275,10 @@ extension HomeViewController: UIScrollViewDelegate {
         selectedRow = 0
         cocktailTableView.reloadData()
         if cocktails.count != 0 {
+            detailView.isHidden = false
             setDetailView(cocktail: cocktails[selectedRow])
+        } else {
+            detailView.isHidden = true
         }
         UIView.animate(withDuration: 0.3, animations: {
             let y = 0 * 50 - 76

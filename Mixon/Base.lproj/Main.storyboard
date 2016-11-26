@@ -57,7 +57,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="123" height="142"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gin" translatesAutoresizingMaskIntoConstraints="NO" id="OBV-y4-TrI">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OBV-y4-TrI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="123" height="142"/>
                                                                     </imageView>
                                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1K-BI-8qV">
@@ -405,7 +405,7 @@
                                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJy-b5-pfS">
                                                             <rect key="frame" x="10" y="0.0" width="258" height="38"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="ANl-PY-nDa">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ANl-PY-nDa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="258" height="38"/>
                                                                 </imageView>
                                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-D2-cRf">
@@ -954,8 +954,6 @@
     </scenes>
     <resources>
         <image name="background" width="1422" height="948"/>
-        <image name="cocktail" width="680" height="510"/>
-        <image name="gin" width="2808" height="1872"/>
         <image name="menu" width="22" height="20"/>
         <image name="mixed" width="180" height="40"/>
         <image name="modoru" width="13" height="17"/>
