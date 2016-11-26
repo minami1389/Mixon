@@ -63,6 +63,8 @@ class CocktailMakeViewController: UIViewController {
         closeButton.setTitle(String.fontAwesomeIcon(name: .timesCircle), for: .normal)
         fetchTotalStep()
         updateView()
+        
+        imageView.image = UIImage(named: cocktail.image)
     }
     
     func fetchTotalStep() {
@@ -84,10 +86,10 @@ class CocktailMakeViewController: UIViewController {
         }
         
         stepLabel.text = "STEP \(step)/\(totalStep)"
-        cocktailNameLabel.text = cocktail.name
-        cocktailNameEnLabel.text = cocktail.name
-        mixedNameLabel.text = cocktail.name
-        mixedNameEnLabel.text = cocktail.name
+        cocktailNameLabel.text = cocktail.nameJp
+        cocktailNameEnLabel.text = cocktail.nameEn
+        mixedNameLabel.text = cocktail.nameJp
+        mixedNameEnLabel.text = cocktail.nameEn
         
         nextButton.isHidden = (step > 2)
         nextLabel.isHidden = (step > 2)

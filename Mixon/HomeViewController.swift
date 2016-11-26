@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cocktailTableView: UITableView!
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     //DetailView
     @IBOutlet weak var nameJpLabel: UILabel!
     @IBOutlet weak var nameEnLabel: UILabel!
@@ -63,13 +65,13 @@ class HomeViewController: UIViewController {
             let have = BaseCoordinator.sharedCoordinator.haveBases
             for i in 0..<bases.count {
                 if have[i] {
-                    cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i+1)
+                    cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i)
                 }
             }
         } else {
             let data = CocktailCoordinator.sharedCoordinator.fetch(baseID: -1)
             for d in data {
-                if d.name.hasPrefix(searchText) {
+                if d.nameJp.hasPrefix(searchText) {
                     cocktails.append(d)
                 }
             }
@@ -160,8 +162,10 @@ class HomeViewController: UIViewController {
     }
     
     func setDetailView(cocktail: Cocktail) {
-        nameJpLabel.text = cocktail.name
-        nameEnLabel.text = cocktail.name
+        backgroundImageView.image = UIImage(named: cocktail.image)
+        
+        nameJpLabel.text = cocktail.nameJp
+        nameEnLabel.text = cocktail.nameEn
         material1Label.text = ""
         material2Label.text = ""
         material3Label.text = ""
@@ -256,16 +260,16 @@ extension HomeViewController: UIScrollViewDelegate {
     func didSelectBaseCategory(index: Int) {
         cocktails = []
         if index == 9 { //その他
-            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: 5)
+            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: 4)
         } else if index == 4 { //おすすめ
             let have = BaseCoordinator.sharedCoordinator.haveBases
             for i in 0..<bases.count {
                 if have[i] {
-                    cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i+1)
+                    cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i)
                 }
             }
         } else {
-            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: index+1)
+            cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: index)
         }
         
         numberOfRow = cocktails.count
@@ -305,7 +309,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.isHidden = false
         let cocktail = cocktails[indexPath.row]
-        cell.titleLabel.text = cocktail.name
+        cell.titleLabel.text = cocktail.nameJp
         cell.cocktailImageView.image = UIImage(named: cocktail.image)
         if indexPath.row == selectedRow {
             cell.coverView.isHidden = true

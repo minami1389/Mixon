@@ -23,7 +23,8 @@
 		192EBFFF1DD6F1E5006A77F4 /* CocktailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */; };
 		192EC00C1DD70EA7006A77F4 /* CocktailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */; };
 		193349FB1DE93F5D00D6FAC0 /* base.csv in Resources */ = {isa = PBXBuildFile; fileRef = 193349F91DE93F5D00D6FAC0 /* base.csv */; };
-		193349FC1DE93F5D00D6FAC0 /* cocktail.csv in Resources */ = {isa = PBXBuildFile; fileRef = 193349FA1DE93F5D00D6FAC0 /* cocktail.csv */; };
+		193349FE1DE9429200D6FAC0 /* cocktail.csv in Resources */ = {isa = PBXBuildFile; fileRef = 193349FD1DE9429200D6FAC0 /* cocktail.csv */; };
+		19334A001DE945BD00D6FAC0 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 193349FF1DE945BD00D6FAC0 /* default.realm */; };
 		1939D66F1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939D66E1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift */; };
 		1939D6711DE086860042269C /* CocktailSelectStartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939D6701DE086860042269C /* CocktailSelectStartCollectionViewCell.swift */; };
 		460D40074280D843FD254875 /* Pods_Mixon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7AE13FA04E327EF3005CB17 /* Pods_Mixon.framework */; };
@@ -70,7 +71,8 @@
 		192EBFFE1DD6F1E5006A77F4 /* CocktailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailCoordinator.swift; sourceTree = "<group>"; };
 		192EC00B1DD70EA7006A77F4 /* CocktailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailTableViewCell.swift; sourceTree = "<group>"; };
 		193349F91DE93F5D00D6FAC0 /* base.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base.csv; path = DB/base.csv; sourceTree = SOURCE_ROOT; };
-		193349FA1DE93F5D00D6FAC0 /* cocktail.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cocktail.csv; path = DB/cocktail.csv; sourceTree = SOURCE_ROOT; };
+		193349FD1DE9429200D6FAC0 /* cocktail.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cocktail.csv; path = DB/cocktail.csv; sourceTree = SOURCE_ROOT; };
+		193349FF1DE945BD00D6FAC0 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = DB/default.realm; sourceTree = SOURCE_ROOT; };
 		1939D66E1DE0867B0042269C /* CocktailSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 		1939D6701DE086860042269C /* CocktailSelectStartCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocktailSelectStartCollectionViewCell.swift; sourceTree = "<group>"; };
 		20C2C7A157F1A4144D4BD7C2 /* Pods-MixonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixonUITests/Pods-MixonUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,7 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				193349F91DE93F5D00D6FAC0 /* base.csv */,
-				193349FA1DE93F5D00D6FAC0 /* cocktail.csv */,
+				193349FD1DE9429200D6FAC0 /* cocktail.csv */,
+				193349FF1DE945BD00D6FAC0 /* default.realm */,
 				192EBFF31DD6F033006A77F4 /* Base.swift */,
 				192EBFF61DD6F043006A77F4 /* Cocktail.swift */,
 				192EBFFC1DD6F1DD006A77F4 /* BaseCoordinator.swift */,
@@ -348,10 +351,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				192EBFC51DD6EA95006A77F4 /* LaunchScreen.storyboard in Resources */,
-				193349FC1DE93F5D00D6FAC0 /* cocktail.csv in Resources */,
+				193349FE1DE9429200D6FAC0 /* cocktail.csv in Resources */,
 				193349FB1DE93F5D00D6FAC0 /* base.csv in Resources */,
 				192EBFC21DD6EA95006A77F4 /* Assets.xcassets in Resources */,
 				192EBFC01DD6EA95006A77F4 /* Main.storyboard in Resources */,
+				19334A001DE945BD00D6FAC0 /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

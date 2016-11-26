@@ -25,7 +25,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZz-n3-TTf">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="CvJ-Uo-Ua7">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="CvJ-Uo-Ua7">
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9n0-Eo-9MD">
@@ -248,7 +248,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PY7-Vd-m2s">
                                 <rect key="frame" x="0.0" y="64" width="667" height="311"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="9eH-Yr-GbD">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9eH-Yr-GbD">
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="311"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-wT-a3w">
@@ -627,6 +627,7 @@
                     <navigationItem key="navigationItem" id="9VH-LP-b3x"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="9eH-Yr-GbD" id="C6F-aE-pcH"/>
                         <outlet property="cocktailTableView" destination="7Io-fr-FPr" id="Dew-PG-EYM"/>
                         <outlet property="detailView" destination="bD6-Pn-72l" id="Yo0-Pb-ufQ"/>
                         <outlet property="material1Label" destination="E94-3d-E19" id="6La-RW-KPQ"/>
@@ -664,8 +665,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="VRV-tM-uGg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRV-tM-uGg">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="667" id="wGt-iu-l0r"/>
+                                </constraints>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1o-jq-YcD">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
@@ -949,8 +953,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="1422" height="948"/>
         <image name="cocktail" width="680" height="510"/>
-        <image name="gin" width="600" height="400"/>
+        <image name="gin" width="2808" height="1872"/>
         <image name="menu" width="22" height="20"/>
         <image name="mixed" width="180" height="40"/>
         <image name="modoru" width="13" height="17"/>

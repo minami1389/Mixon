@@ -24,11 +24,6 @@ class CocktailCoordinator: NSObject {
             for result in results {
                 cocktails.append(result)
             }
-        case 0:
-            let results = realm.objects(Cocktail.self).filter("favorite == true")
-            for result in results {
-                cocktails.append(result)
-            }
         default:
             let results = realm.objects(Cocktail.self).filter("baseID == \(baseID)")
             for result in results {
@@ -56,8 +51,8 @@ class CocktailCoordinator: NSObject {
             
             if let id = Int(components[0]) { cocktail.id = id }
             if let baseID = Int(components[1]) { cocktail.baseID = baseID }
-            cocktail.name = components[2]
-            cocktail.detail = components[3]
+            cocktail.nameJp = components[2]
+            cocktail.nameEn = components[3]
             cocktail.image = components[4]
             
             if components[5] != "" {
@@ -77,10 +72,20 @@ class CocktailCoordinator: NSObject {
                 if let quantity = Int(material[1]) { cocktail.quantity3 = quantity }
             }
             
-            if components[8] != "" {
-                let material = components[8].components(separatedBy: ":")
-                cocktail.material4 = material[0]
-                if let quantity = Int(material[1]) { cocktail.quantity4 = quantity }
+            if components.count >= 9 {
+                if components[8] != "" {
+                    let material = components[8].components(separatedBy: ":")
+                    cocktail.material4 = material[0]
+                    if let quantity = Int(material[1]) { cocktail.quantity4 = quantity }
+                }
+            }
+            
+            if components.count >= 10 {
+                if components[9] != "" {
+                    let material = components[9].components(separatedBy: ":")
+                    cocktail.material5 = material[0]
+                    if let quantity = Int(material[1]) { cocktail.quantity5 = quantity }
+                }
             }
             
             let realm = try! Realm()
