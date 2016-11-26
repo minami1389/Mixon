@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var material4Label: UILabel!
     @IBOutlet weak var material5Label: UILabel!
     @IBOutlet weak var tasteLabel: UILabel!
+    @IBOutlet weak var detailView: UIView!
     
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -79,6 +80,8 @@ class HomeViewController: UIViewController {
         //DetailView
         if cocktails.count != 0 {
             setDetailView(cocktail: cocktails[selectedRow])
+        } else {
+            detailView.isHidden = true
         }
         
         prepareMenuTab()
@@ -196,6 +199,7 @@ class HomeViewController: UIViewController {
         if searchBarOriginY.constant == 0 {
             searchBarOriginY.constant = -searchBar.frame.size.height
             searchBar.resignFirstResponder()
+            searchBar.text = ""
         } else {
             searchBarOriginY.constant = 0
             searchBar.becomeFirstResponder()
@@ -207,12 +211,18 @@ class HomeViewController: UIViewController {
     @IBAction func didTapSearchResultBackButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
+    
 }
 
 extension HomeViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBarOriginY.constant = -searchBar.frame.size.height
         searchBar.resignFirstResponder()
+        searchBar.text = ""
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         if let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
             vc.searchText = searchBar.text!
             navigationController?.show(vc, sender: self)

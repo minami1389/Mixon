@@ -628,6 +628,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cocktailTableView" destination="7Io-fr-FPr" id="Dew-PG-EYM"/>
+                        <outlet property="detailView" destination="bD6-Pn-72l" id="Yo0-Pb-ufQ"/>
                         <outlet property="material1Label" destination="E94-3d-E19" id="6La-RW-KPQ"/>
                         <outlet property="material2Label" destination="s5F-1a-bmy" id="PkK-t1-Naq"/>
                         <outlet property="material3Label" destination="fSk-qb-OEK" id="2Uu-Pg-KdZ"/>
