@@ -77,6 +77,8 @@ class CocktailMakeViewController: UIViewController {
             totalStep = 4
         } else if cocktail.quantity4 == 0 {
             totalStep = 5
+        } else if cocktail.quantity5 == 0 {
+            totalStep = 6
         }
     }
     
@@ -109,29 +111,29 @@ class CocktailMakeViewController: UIViewController {
         case 3:
             zeroQuantity = quantity
             print("zero: \(zeroQuantity)")
-            write(value: "1,193,72,149")
+            write(value: "1,208,0,237")
             detailLabel.text = cocktail.material1
             quantityLabel.text = "\(cocktail.quantity1)ml"
             view.backgroundColor = UIColor.init(red: 193/255, green: 72/255, blue: 149/255, alpha: 1.0)
         case 4:
-            write(value: "1,206,75,75")
+            write(value: "1,62,114,255")
             detailLabel.text = cocktail.material2
             quantityLabel.text = "\(cocktail.quantity2)ml"
             view.backgroundColor = UIColor.init(red: 75/255, green: 182/255, blue: 205/255, alpha: 1.0)
         case 5:
-            write(value: "1,75,182,206")
+            write(value: "1,255,41,23")
             detailLabel.text = cocktail.material3
             quantityLabel.text = "\(cocktail.quantity3)ml"
             view.backgroundColor = UIColor.init(red: 205/255, green: 75/255, blue: 75/255, alpha: 1.0)
         case 6:
-            write(value: "1,184,206,75")
+            write(value: "1,180,255,29")
             detailLabel.text = cocktail.material4
             quantityLabel.text = "\(cocktail.quantity4)ml"
             view.backgroundColor = UIColor.init(red: 183/255, green: 205/255, blue: 75/255, alpha: 1.0)
         case 7:
-            write(value: "1,141,75,205")
-            detailLabel.text = cocktail.material1
-            quantityLabel.text = "\(cocktail.quantity1)ml"
+            write(value: "1,127,9,255")
+            detailLabel.text = cocktail.material5
+            quantityLabel.text = "\(cocktail.quantity5)ml"
             view.backgroundColor = UIColor.init(red: 141/255, green: 75/255, blue: 205/255, alpha: 1.0)
         case 8:
             write(value: "1,255,255,255")
@@ -156,7 +158,6 @@ class CocktailMakeViewController: UIViewController {
     }
     
     func close() {
-        print("close")
         dismiss(animated: true, completion: {
             self.centralManager?.stopScan()
             if let mixon = self.mixon {
@@ -169,7 +170,7 @@ class CocktailMakeViewController: UIViewController {
     }
 
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
-        //next()
+        next()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -312,11 +313,11 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
         case 4:
             return Float(cocktail.quantity2)
         case 5:
-            return Float(cocktail.quantity3)
+            return Float(cocktail.quantity1)
         case 6:
-            return Float(cocktail.quantity4)
+            return Float(cocktail.quantity1)
         case 7:
-            return Float(cocktail.quantity4)
+            return Float(cocktail.quantity1)
         default:
             return 0
         }
