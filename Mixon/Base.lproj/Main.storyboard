@@ -260,6 +260,12 @@
                                         </view>
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="レシピがありません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBy-I3-dCt">
+                                        <rect key="frame" x="265.5" y="180" width="135" height="15"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bD6-Pn-72l" userLabel="DetailView">
                                         <rect key="frame" x="267.5" y="63" width="399.5" height="312"/>
                                         <subviews>
@@ -597,11 +603,13 @@
                                     <constraint firstItem="Ykq-wT-a3w" firstAttribute="leading" secondItem="PY7-Vd-m2s" secondAttribute="leading" id="ULX-dQ-evI"/>
                                     <constraint firstItem="U60-jP-JKk" firstAttribute="top" secondItem="PY7-Vd-m2s" secondAttribute="top" id="WWu-B3-3LI"/>
                                     <constraint firstAttribute="trailing" secondItem="uFr-xS-6Ql" secondAttribute="trailing" id="XJl-so-k3E"/>
+                                    <constraint firstItem="PBy-I3-dCt" firstAttribute="centerX" secondItem="PY7-Vd-m2s" secondAttribute="centerX" id="XTG-Va-ibz"/>
                                     <constraint firstItem="uFr-xS-6Ql" firstAttribute="top" secondItem="U60-jP-JKk" secondAttribute="bottom" constant="-44" id="ZxS-4B-J6L"/>
                                     <constraint firstItem="U60-jP-JKk" firstAttribute="leading" secondItem="PY7-Vd-m2s" secondAttribute="leading" id="bLJ-Bd-ABy"/>
                                     <constraint firstItem="bD6-Pn-72l" firstAttribute="leading" secondItem="7Io-fr-FPr" secondAttribute="trailing" id="dBB-G5-auu"/>
                                     <constraint firstAttribute="bottom" secondItem="Ykq-wT-a3w" secondAttribute="bottom" id="emy-Kt-TXL"/>
                                     <constraint firstItem="wzU-Db-hsD" firstAttribute="leading" secondItem="U60-jP-JKk" secondAttribute="leading" id="hN2-f3-zvn"/>
+                                    <constraint firstItem="PBy-I3-dCt" firstAttribute="centerY" secondItem="PY7-Vd-m2s" secondAttribute="centerY" id="lkS-Q7-wlH"/>
                                     <constraint firstAttribute="trailing" secondItem="U60-jP-JKk" secondAttribute="trailing" id="mmJ-yE-vVn"/>
                                     <constraint firstItem="9eH-Yr-GbD" firstAttribute="leading" secondItem="PY7-Vd-m2s" secondAttribute="leading" id="oKL-vt-1Ak"/>
                                     <constraint firstItem="wzU-Db-hsD" firstAttribute="trailing" secondItem="U60-jP-JKk" secondAttribute="trailing" id="qam-fG-1Lp"/>
@@ -638,6 +646,7 @@
                         <outlet property="menuView" destination="U60-jP-JKk" id="Fnv-mc-Uq7"/>
                         <outlet property="nameEnLabel" destination="9bH-Ic-Q8Z" id="Eg0-rA-ckq"/>
                         <outlet property="nameJpLabel" destination="aiJ-2E-n1G" id="dwp-K8-bMa"/>
+                        <outlet property="noRecipeLabel" destination="PBy-I3-dCt" id="mXz-9Q-FWk"/>
                         <outlet property="scrollCoverView" destination="nJz-e3-s1c" id="QcY-H1-mgp"/>
                         <outlet property="scrollView" destination="BzD-OE-Ew3" id="Q2y-m4-6ys"/>
                         <outlet property="searchBar" destination="uFr-xS-6Ql" id="EVm-dE-WpC"/>

@@ -48,6 +48,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBarOriginY: NSLayoutConstraint!
     var searchText = ""
     
+    @IBOutlet weak var noRecipeLabel: UILabel!
     var didLoad = false
     
     override func viewDidLoad() {
@@ -59,12 +60,14 @@ class HomeViewController: UIViewController {
         searchResultView.isHidden = (searchText == "")
         searchResultLabel.text = "\"\(searchText)\"の検索結果"
         
+        var haveIndex = 0
         bases = BaseCoordinator.sharedCoordinator.fetch()
         if searchText == "" {
             let have = BaseCoordinator.sharedCoordinator.haveBases
             for i in 0..<bases.count {
                 if have[i] {
                     cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i)
+                    haveIndex = i
                 }
             }
         } else {
@@ -81,8 +84,11 @@ class HomeViewController: UIViewController {
         //DetailView
         if cocktails.count != 0 {
             setDetailView(cocktail: cocktails[selectedRow])
+            noRecipeLabel.isHidden = true
         } else {
             detailView.isHidden = true
+            noRecipeLabel.isHidden = false
+            backgroundImageView.image = UIImage(named: bases[haveIndex].image)
         }
         
         prepareMenuTab()
@@ -260,15 +266,20 @@ extension HomeViewController: UIScrollViewDelegate {
         cocktails = []
         if index == 9 { //その他
             cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: 4)
+            backgroundImageView.image = UIImage(named: bases[4].image)
         } else if index == 4 { //おすすめ
+            var haveIndex = 0
             let have = BaseCoordinator.sharedCoordinator.haveBases
             for i in 0..<bases.count {
                 if have[i] {
                     cocktails += CocktailCoordinator.sharedCoordinator.fetch(baseID: i)
+                    haveIndex = i
                 }
             }
+            backgroundImageView.image = UIImage(named: bases[haveIndex].image)
         } else {
             cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: index)
+            backgroundImageView.image = UIImage(named: bases[index].image)
         }
         
         numberOfRow = cocktails.count
@@ -277,8 +288,10 @@ extension HomeViewController: UIScrollViewDelegate {
         if cocktails.count != 0 {
             detailView.isHidden = false
             setDetailView(cocktail: cocktails[selectedRow])
+            noRecipeLabel.isHidden = true
         } else {
             detailView.isHidden = true
+            noRecipeLabel.isHidden = false
         }
         UIView.animate(withDuration: 0.3, animations: {
             let y = 0 * 50 - 76
