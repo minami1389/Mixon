@@ -17,6 +17,9 @@ class CocktailMakeViewController: UIViewController {
     var quantity: Float = 0
     var zeroQuantity:Float = 0
     
+    let defaultBrightness = 20
+    var mixed = false
+    
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
@@ -29,6 +32,8 @@ class CocktailMakeViewController: UIViewController {
     @IBOutlet weak var effectView: UIVisualEffectView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailNextLabel: UILabel!
+    
+    var calcQuantities:[Float] = [0,0,0,0,0]
     
     let uuid = "2D826528-C989-9D27-A8FA-0CBF3E5431E5"
     let serviceUUID = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
@@ -46,8 +51,10 @@ class CocktailMakeViewController: UIViewController {
     @IBOutlet weak var mixedNameLabel: UILabel!
     @IBOutlet weak var mixedNameEnLabel: UILabel!
     
-    var calcQuantityIndex = 0
-    var calcQuantitySum:Float = 0
+    var red:Float = 0
+    var green:Float = 0
+    var blue:Float = 0
+    var brightness:Float = 0
     
     //Color Debug
     @IBOutlet weak var redSlider: UISlider!
@@ -65,6 +72,8 @@ class CocktailMakeViewController: UIViewController {
         updateView()
         
         imageView.image = UIImage(named: cocktail.image)
+        
+        contentView.isHidden = true
     }
     
     func fetchTotalStep() {
@@ -111,34 +120,54 @@ class CocktailMakeViewController: UIViewController {
         case 3:
             zeroQuantity = quantity
             print("zero: \(zeroQuantity)")
-            write(value: "1,208,0,237")
+            red = 208
+            green = 0
+            blue = 237
+            brightness = 0.2
+            write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material1
-            quantityLabel.text = "\(cocktail.quantity1)ml"
+            quantityLabel.text = "\(50)ml"
             view.backgroundColor = UIColor.init(red: 193/255, green: 72/255, blue: 149/255, alpha: 1.0)
         case 4:
-            write(value: "1,62,114,255")
+            red = 62
+            green = 114
+            blue = 255
+            brightness = 0.2
+            write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material2
-            quantityLabel.text = "\(cocktail.quantity2)ml"
+            quantityLabel.text = "\(200)ml"
             view.backgroundColor = UIColor.init(red: 75/255, green: 182/255, blue: 205/255, alpha: 1.0)
         case 5:
-            write(value: "1,255,41,23")
+            red = 255
+            green = 41
+            blue = 23
+            brightness = 0.2
+            write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material3
             quantityLabel.text = "\(cocktail.quantity3)ml"
             view.backgroundColor = UIColor.init(red: 205/255, green: 75/255, blue: 75/255, alpha: 1.0)
         case 6:
-            write(value: "1,180,255,29")
+            red = 180
+            green = 255
+            blue = 29
+            brightness = 0.2
+            write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material4
             quantityLabel.text = "\(cocktail.quantity4)ml"
             view.backgroundColor = UIColor.init(red: 183/255, green: 205/255, blue: 75/255, alpha: 1.0)
         case 7:
-            write(value: "1,127,9,255")
+            red = 127
+            green = 9
+            blue = 255
+            brightness = 0.2
+            write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material5
             quantityLabel.text = "\(cocktail.quantity5)ml"
             view.backgroundColor = UIColor.init(red: 141/255, green: 75/255, blue: 205/255, alpha: 1.0)
         case 8:
+            mixed = true
             write(value: "1,255,255,255")
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                self.write(value: "2")
                 self.close()
             }
         default:
@@ -159,11 +188,14 @@ class CocktailMakeViewController: UIViewController {
     
     func close() {
         dismiss(animated: true, completion: {
-            self.centralManager?.stopScan()
-            if let mixon = self.mixon {
-                self.centralManager?.cancelPeripheralConnection(mixon)
-                if let characteristic = self.notifyCharacteristic {
-                    mixon.setNotifyValue(false, for: characteristic)
+            self.write(value: "2")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.centralManager?.stopScan()
+                if let mixon = self.mixon {
+                    self.centralManager?.cancelPeripheralConnection(mixon)
+                    if let characteristic = self.notifyCharacteristic {
+                        mixon.setNotifyValue(false, for: characteristic)
+                    }
                 }
             }
         })
@@ -182,7 +214,7 @@ class CocktailMakeViewController: UIViewController {
         next()
     }
     @IBAction func didTapCloseButton(_ sender: UIButton) {
-        close()
+        self.close()
     }
     
     @IBAction func didValueChangeRedSlider(_ sender: UISlider) {
@@ -259,9 +291,10 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
                 print("Discover Write Characteristics")
                 writeCharacteristic = characteristic
                 write(value: "0")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self.write(value: "1,255,255,255")
-                }
+                write(value: "1,255,255,255")
+                UIView.animate(withDuration: 0.3, animations: { 
+                    self.contentView.isHidden = false
+                })
             } else if characteristic.uuid.uuidString == notifyCharacteristicUUID {
                 print("Discover Notify Characteristics")
                 notifyCharacteristic = characteristic
@@ -272,8 +305,12 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     
     func write(value: String) {
         guard let writeCharacteristic = writeCharacteristic else { return }
-        if let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) {
-            self.mixon?.writeValue(data, for: writeCharacteristic, type: CBCharacteristicWriteType.withResponse)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let v = "\(value),22"
+            print(v)
+            if let data = v.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+                self.mixon?.writeValue(data, for: writeCharacteristic, type: CBCharacteristicWriteType.withResponse)
+            }
         }
     }
     
@@ -281,27 +318,42 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
         guard let data = characteristic.value else { return }
         if let text = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
             
-            guard text.characters.count == 6 else { return }
             guard let value = Float(text) else { return }
+            guard value > 100 && value < 1024 else { return }
             
-            calcQuantitySum += value
-            calcQuantityIndex += 1
-            let n = 10
-            if calcQuantityIndex == n {
-                quantity = calcQuantitySum / Float(n)
-                print("quantity: \(quantity)")
-                calcQuantityIndex = 0
-                calcQuantitySum = 0
-                if quantity - zeroQuantity > threshold() && step > 2 {
-                    print("--- next ---")
-                    print("threshold: \(threshold())")
-                    print("zero: \(zeroQuantity)")
-                    print("quantity: \(quantity)")
-                    print("------------")
-                    next()
-                    zeroQuantity = quantity
-                }
+            calcQuantities.append(value)
+            calcQuantities.remove(at: 0)
+            
+            var sum:Float = 0
+            for q in calcQuantities {
+                sum += q
             }
+            let avg = sum / Float(calcQuantities.count)
+            
+            let r1:Float = 10.0
+            let rf = r1 * avg / (1024.0 - avg)
+            let fg = 1054.5 / rf - 59.104
+            
+            quantity = fg
+            //print("\(value) : \(avg) : \(fg)")
+            guard threshold() != 0 else { return }
+            
+            let diff = quantity - zeroQuantity
+            brightness = diff / threshold() * 0.8 + 0.2 // 0 - 1
+            if brightness > 0 && brightness <= 1 {
+                    if self.mixed { return }
+                    self.write(value: "1,\(Int(self.red*self.brightness)),\(Int(self.green*self.brightness)),\(Int(self.blue*self.brightness))")
+            }
+            if diff > threshold() && step > 2 {
+//                print("--- next ---")
+//                print("threshold: \(threshold())")
+//                print("zero: \(zeroQuantity)")
+//                print("quantity: \(quantity)")
+//                print("------------")
+                next()
+                zeroQuantity = quantity
+            }
+            
             
         }
     }
@@ -309,15 +361,15 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     func threshold() -> Float {
         switch step {
         case 3:
-            return Float(cocktail.quantity1)
+            return Float(30)
         case 4:
-            return Float(cocktail.quantity2)
+            return Float(170)
         case 5:
-            return Float(cocktail.quantity1)
+            return Float(cocktail.quantity3)
         case 6:
-            return Float(cocktail.quantity1)
+            return Float(cocktail.quantity4)
         case 7:
-            return Float(cocktail.quantity1)
+            return Float(cocktail.quantity5)
         default:
             return 0
         }
@@ -338,7 +390,4 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
             print("Did Write Value")
         }
     }
-    
-    
-    
 }

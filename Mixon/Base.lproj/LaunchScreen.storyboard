@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixon_splash" translatesAutoresizingMaskIntoConstraints="NO" id="lKY-0j-xqD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_logo" translatesAutoresizingMaskIntoConstraints="NO" id="lKY-0j-xqD">
                                 <rect key="frame" x="229" y="151.5" width="209" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lKY-0j-xqD" secondAttribute="height" multiplier="35:12" id="a49-Ls-EwY"/>
@@ -42,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mixon_splash" width="210" height="72"/>
+        <image name="top_logo" width="210" height="72"/>
     </resources>
 </document>

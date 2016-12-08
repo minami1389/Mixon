@@ -195,7 +195,7 @@ class HomeViewController: UIViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailMakeViewController") as? CocktailMakeViewController {
             vc.cocktail = cocktails[selectedRow]
             vc.step = 1
-            vc.modalTransitionStyle = .crossDissolve
+            vc.modalTransitionStyle = .coverVertical
             present(vc, animated: true, completion: nil)
         }
     }
@@ -276,7 +276,8 @@ extension HomeViewController: UIScrollViewDelegate {
                     haveIndex = i
                 }
             }
-            backgroundImageView.image = UIImage(named: bases[haveIndex].image)
+            backgroundImageView.image = UIImage(named: bases[haveIndex
+                ].image)
         } else {
             cocktails = CocktailCoordinator.sharedCoordinator.fetch(baseID: index)
             backgroundImageView.image = UIImage(named: bases[index].image)

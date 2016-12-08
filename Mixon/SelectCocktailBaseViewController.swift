@@ -20,6 +20,8 @@ class SelectCocktailBaseViewController: UIViewController {
         bases = BaseCoordinator.sharedCoordinator.fetch()
         collectionView.reloadData()
     }
+    
+    
 
 }
 
