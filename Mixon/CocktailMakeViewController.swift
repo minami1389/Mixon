@@ -165,6 +165,7 @@ class CocktailMakeViewController: UIViewController {
             quantityLabel.text = "\(cocktail.quantity5)ml"
             view.backgroundColor = UIColor.init(red: 141/255, green: 75/255, blue: 205/255, alpha: 1.0)
         case 8:
+            effectView.isHidden = true
             mixed = true
             write(value: "1,255,255,255")
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {

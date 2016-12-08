@@ -59,7 +59,7 @@ extension SelectCocktailBaseViewController: UICollectionViewDelegate, UICollecti
         }
         
         let cell = collectionView.cellForItem(at: indexPath) as! CocktailSelectCollectionViewCell
-        cell.coverView.alpha = 0.0
+        cell.coverView.alpha = 0.4
         selected[indexPath.item] = true
         
         let startCell = collectionView.cellForItem(at: IndexPath(item:bases.count, section:0)) as! CocktailSelectStartCollectionViewCell

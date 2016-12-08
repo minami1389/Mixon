@@ -100,7 +100,7 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         if !didLoad {
             UIView.animate(withDuration: 0.3, animations: {
-                let y = 0 * 50 - 76
+                let y = -81
                 self.cocktailTableView.contentOffset = CGPoint(x:0, y:y)
             })
         }
@@ -295,7 +295,7 @@ extension HomeViewController: UIScrollViewDelegate {
             noRecipeLabel.isHidden = false
         }
         UIView.animate(withDuration: 0.3, animations: {
-            let y = 0 * 50 - 76
+            let y = -81
             self.cocktailTableView.contentOffset = CGPoint(x:0, y:y)
         })
         
@@ -358,7 +358,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         UIView.animate(withDuration: 0.3, animations: {
-            let y = indexPath.row * 50 - 76
+            let y = indexPath.row * 50 - 81
             tableView.contentOffset = CGPoint(x:0, y:y)
             self.setDetailView(cocktail: self.cocktails[indexPath.row])
         })
