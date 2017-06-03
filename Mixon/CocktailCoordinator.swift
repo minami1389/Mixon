@@ -66,10 +66,12 @@ class CocktailCoordinator: NSObject {
                 if let quantity = Int(material[1]) { cocktail.quantity2 = quantity }
             }
             
-            if components[7] != "" {
-                let material = components[7].components(separatedBy: ":")
-                cocktail.material3 = material[0]
-                if let quantity = Int(material[1]) { cocktail.quantity3 = quantity }
+            if components.count >= 8 {
+                if components[7] != "" {
+                    let material = components[7].components(separatedBy: ":")
+                    cocktail.material3 = material[0]
+                    if let quantity = Int(material[1]) { cocktail.quantity3 = quantity }
+                }
             }
             
             if components.count >= 9 {

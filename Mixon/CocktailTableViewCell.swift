@@ -17,6 +17,7 @@ class CocktailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        tasteLabel.isHidden = true
         // Initialization code
     }
 

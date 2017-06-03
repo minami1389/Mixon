@@ -56,7 +56,6 @@ class HomeViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         menuView.isHidden = (searchText != "")
-        searchBar.isHidden = (searchText != "")
         searchResultView.isHidden = (searchText == "")
         searchResultLabel.text = "\"\(searchText)\"の検索結果"
         
@@ -210,11 +209,17 @@ class HomeViewController: UIViewController {
             searchBar.resignFirstResponder()
             searchBar.text = ""
         } else {
+            searchBar.isHidden = false
             searchBarOriginY.constant = 0
             searchBar.becomeFirstResponder()
         }
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if self.searchBarOriginY.constant != 0 {
+                    self.searchBar.isHidden = true
+                }
+            }
         })
     }
     @IBAction func didTapSearchResultBackButton(_ sender: UIButton) {
@@ -330,11 +335,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == selectedRow {
             cell.coverView.isHidden = true
             cell.titleLabel.isHidden = true
-            cell.tasteLabel.isHidden = true
         } else {
             cell.coverView.isHidden = false
             cell.titleLabel.isHidden = false
-            cell.tasteLabel.isHidden = false
         }
         return cell
         
@@ -377,7 +380,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.cellForRow(at: IndexPath(row: self.selectedRow, section: 0)) as? CocktailTableViewCell {
                 cell.coverView.isHidden = false
                 cell.titleLabel.isHidden = false
-                cell.tasteLabel.isHidden = false
                 self.selectedRow = -1
             }
             
@@ -385,7 +387,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.cellForRow(at: indexPath) as! CocktailTableViewCell
             cell.coverView.isHidden = true
             cell.titleLabel.isHidden = true
-            cell.tasteLabel.isHidden = true
             self.selectedRow = indexPath.row
             
             tableView.endUpdates()

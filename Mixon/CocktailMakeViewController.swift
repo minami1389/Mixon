@@ -35,7 +35,8 @@ class CocktailMakeViewController: UIViewController {
     
     var calcQuantities:[Float] = [0,0,0,0,0]
     
-    let uuid = "2D826528-C989-9D27-A8FA-0CBF3E5431E5"
+    let uuid1 = "4D670666-55B2-4727-8295-02F99D99866C"
+    let uuid2 = "2D826528-C989-9D27-A8FA-0CBF3E5431E5"
     let serviceUUID = "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
     let writeCharacteristicUUID = "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
     let notifyCharacteristicUUID = "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
@@ -126,7 +127,7 @@ class CocktailMakeViewController: UIViewController {
             brightness = 0.2
             write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material1
-            quantityLabel.text = "\(50)ml"
+            quantityLabel.text = "\(cocktail.quantity1)ml"
             view.backgroundColor = UIColor.init(red: 193/255, green: 72/255, blue: 149/255, alpha: 1.0)
         case 4:
             red = 62
@@ -135,7 +136,7 @@ class CocktailMakeViewController: UIViewController {
             brightness = 0.2
             write(value: "1,\(Int(self.red*brightness)),\(Int(self.green*brightness)),\(Int(self.blue*brightness))")
             detailLabel.text = cocktail.material2
-            quantityLabel.text = "\(200)ml"
+            quantityLabel.text = "\(cocktail.quantity2)ml"
             view.backgroundColor = UIColor.init(red: 75/255, green: 182/255, blue: 205/255, alpha: 1.0)
         case 5:
             red = 255
@@ -174,6 +175,13 @@ class CocktailMakeViewController: UIViewController {
         default:
             break
         }
+        
+        guard let text = quantityLabel.text else { return }
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(NSKernAttributeName, value: 2.0, range: NSRange(location: 0, length: text.characters.count))
+        attributedString.addAttribute(NSFontAttributeName, value: quantityLabel.font, range: NSRange(location: 0, length: text.characters.count))
+        quantityLabel.attributedText = attributedString
+
     }
     
     func next() {
@@ -253,7 +261,12 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if peripheral.identifier.uuidString == uuid {
+        print(peripheral)
+        var name = ""
+        if let n = peripheral.name {
+            name = n
+        }
+        if peripheral.identifier.uuidString == uuid1 || peripheral.identifier.uuidString == uuid2 || name.hasPrefix("Adafruit") {
             mixon = peripheral
             mixon?.delegate = self
             centralManager?.connect(mixon!, options: nil)
@@ -362,9 +375,9 @@ extension CocktailMakeViewController: CBCentralManagerDelegate, CBPeripheralDele
     func threshold() -> Float {
         switch step {
         case 3:
-            return Float(30)
+            return Float(20)
         case 4:
-            return Float(170)
+            return Float(140)
         case 5:
             return Float(cocktail.quantity3)
         case 6:
